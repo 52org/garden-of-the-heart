@@ -12,8 +12,8 @@ const Seed: React.FC = () => {
       <img src={imgUrl} alt='' />
       <p>{plantName}</p>
       <span>물주기 횟수 : {growingPeriod}</span>
-      <p>{description}</p>
-
+      <p>{description.skill}</p>
+      <p>{description.description}</p>
       <button>{plantName} 심으러가기</button>
     </div>
   );
