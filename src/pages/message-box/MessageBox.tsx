@@ -12,7 +12,7 @@ interface Letter {
 const mock: Letter[] = [
   {
     id: '0',
-    plantName: '토마토',
+    plantName: '해바라기',
     author: '진',
     createDate: '2022-11-27',
   },
@@ -24,7 +24,7 @@ const mock: Letter[] = [
   },
   {
     id: '2',
-    plantName: '커피',
+    plantName: '감자',
     author: '준',
     createDate: '2022-11-16',
   },
@@ -44,8 +44,8 @@ const mock: Letter[] = [
 
 const MessageBox: React.FC = () => {
   return (
-    <div className='mx-auto px-5 bg-slate-700'>
-      <ul className='[&>li]:mb-5 bg-slate-300'>
+    <div className='mx-auto px-8 bg-slate-700'>
+      <ul className='[&>li]:mb-8 bg-slate-300'>
         {mock?.map((letter) => (
           <MessageBoxItem
             key={letter.id}
