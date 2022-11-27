@@ -1,10 +1,8 @@
 import { Rest } from "../api";
-import { createAllRestFetch, createGetRestFetch, createRestFetch } from "../createFetch";
+import { createAllRestFetch } from "../createFetch";
 
-const hostname = window.location.hostname;
+const hostname = "any";
 
-export const restFetch = new Rest("any");
+export const restFetch = new Rest(hostname);
 
-export const createRestFetchByPatent = createRestFetch(restFetch);
-export const createGetRestFetchByPatent = createGetRestFetch(restFetch);
-export const createAllRestFetchByPatent = createAllRestFetch(restFetch);
+export const createAllRestFetchByApi = createAllRestFetch(restFetch);
