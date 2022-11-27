@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Seed: React.FC = () => {
   // const location = useLocation()
   // const {plantName, imgURL} = location.state.seed
