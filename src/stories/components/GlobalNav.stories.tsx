@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import GlobalNav from '../components/global-nav';
+import GlobalNav from '../../components/global-nav';
 
 export default {
-  title: 'Components/GlobalNav',
+  title: 'components/GlobalNav',
   component: GlobalNav,
 } as ComponentMeta<typeof GlobalNav>;
 
