@@ -16,7 +16,6 @@ const baseSlice = createSlice({
   name: 'base',
   initialState,
   reducers: {
-    addId: (state, { payload }: PayloadAction<string>) => {},
     addCount: (state, { payload }: PayloadAction<number>) => {
       state.count += payload;
     },
@@ -26,7 +25,7 @@ const baseSlice = createSlice({
   },
 });
 
-export const { addId, addCount, deleteCount } = baseSlice.actions;
+export const { addCount, deleteCount } = baseSlice.actions;
 
 export const base = baseSlice.reducer;
 
