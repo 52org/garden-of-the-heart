@@ -44,8 +44,8 @@ const mock: Letter[] = [
 
 const MessageBox: React.FC = () => {
   return (
-    <div className='mx-auto px-5'>
-      <ul className='[&>li]:mb-3'>
+    <div className='mx-auto px-5 bg-slate-700'>
+      <ul className='[&>li]:mb-5 bg-slate-300'>
         {mock?.map((letter) => (
           <MessageBoxItem
             key={letter.id}
@@ -55,6 +55,7 @@ const MessageBox: React.FC = () => {
           />
         ))}
       </ul>
+      <div className='h-10'></div>
     </div>
   );
 };
