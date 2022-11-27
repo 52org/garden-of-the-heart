@@ -1,17 +1,17 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import MessageBox from 'pages/message-box';
 import React from 'react';
 
-import GardenGuest from '../../pages/garden-guest';
 import PageTemplate from './PageTemplate';
 
 export default {
-  title: 'pages/GardenGuest',
-  component: GardenGuest,
-} as ComponentMeta<typeof GardenGuest>;
+  title: 'pages/MessageBox',
+  component: MessageBox,
+} as ComponentMeta<typeof MessageBox>;
 
-const Template: ComponentStory<typeof GardenGuest> = (args) => (
+const Template: ComponentStory<typeof MessageBox> = (args) => (
   <PageTemplate>
-    <GardenGuest {...args} />
+    <MessageBox {...args} />
   </PageTemplate>
 );
 
