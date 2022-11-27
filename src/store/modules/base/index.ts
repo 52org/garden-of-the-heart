@@ -3,30 +3,36 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from 'store';
 
 interface BaseState {
-  id: string | null;
-  count: number;
+  uuid: string | null;
+  name: string | null;
 }
 
 const initialState: BaseState = {
-  id: null,
-  count: 0,
+  uuid: null,
+  name: null
 };
 
 const baseSlice = createSlice({
   name: 'base',
   initialState,
   reducers: {
-    addId: (state, { payload }: PayloadAction<string>) => {},
-    addCount: (state, { payload }: PayloadAction<number>) => {
-      state.count += payload;
+    initUuId: (state, { payload }: PayloadAction<string>) => {
+      state.uuid = payload;
     },
-    deleteCount: (state, { payload }: PayloadAction<number>) => {
-      state.count -= payload;
+    initName: (state, { payload }: PayloadAction<string>) => {
+      state.name = payload;
     },
+    clearBase: (state) => {
+      return initialState;
+    }
   },
 });
 
-export const { addId, addCount, deleteCount } = baseSlice.actions;
+export const {
+  initUuId,
+  initName,
+  clearBase
+} = baseSlice.actions;
 
 export const base = baseSlice.reducer;
 
