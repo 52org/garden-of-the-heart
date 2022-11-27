@@ -1,4 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import type { RootState } from 'store';
 
 interface BaseState {
   id: string | null;
@@ -7,29 +9,25 @@ interface BaseState {
 
 const initialState: BaseState = {
   id: null,
-  count: 0
-}
+  count: 0,
+};
 
-export const baseSlice = createSlice({
-  name: "base",
+const baseSlice = createSlice({
+  name: 'base',
   initialState,
   reducers: {
-    addId: (state, { payload }: PayloadAction<string>) => {
-
-    },
-    addCount: (state, { payload } : PayloadAction<number>) => {
+    addId: (state, { payload }: PayloadAction<string>) => {},
+    addCount: (state, { payload }: PayloadAction<number>) => {
       state.count += payload;
     },
     deleteCount: (state, { payload }: PayloadAction<number>) => {
       state.count -= payload;
-    }
-  }
+    },
+  },
 });
+
+export const { addId, addCount, deleteCount } = baseSlice.actions;
 
 export const base = baseSlice.reducer;
 
-export const {
-  addId,
-  addCount,
-  deleteCount
-} = baseSlice.actions;
+export const getBase = (state: RootState): BaseState => state.base;
