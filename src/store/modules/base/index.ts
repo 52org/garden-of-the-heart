@@ -16,7 +16,7 @@ interface BaseState {
 const initialState: BaseState = {
   uuid: null,
   name: null,
-  createOwnerData: null
+  createOwnerData: null,
 };
 
 const baseSlice = createSlice({
@@ -37,15 +37,11 @@ const baseSlice = createSlice({
     },
     clearBase: () => {
       return initialState;
-    }
+    },
   },
 });
 
-export const {
-  initUuId,
-  initName,
-  clearBase
-} = baseSlice.actions;
+export const { initUuId, initName, clearBase } = baseSlice.actions;
 
 export const base = baseSlice.reducer;
 

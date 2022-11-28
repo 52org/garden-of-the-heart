@@ -1,6 +1,6 @@
 import * as PlantImage from 'assets/image/plants';
 
-export interface Seed {
+interface Seed {
   imgUrl: string;
   plantName: string;
   growingPeriod: number;
