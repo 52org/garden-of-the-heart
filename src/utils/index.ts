@@ -5,16 +5,16 @@ interface ImageTable {
 }
 
 const plantImageTable = {
-  사과: PlantImage.appleImage,
-  바나나: PlantImage.bananaImage,
-  당근: PlantImage.carrotImage,
-  산삼: PlantImage.ginsengImage,
-  메론: PlantImage.melonImage,
-  감자: PlantImage.potatoImage,
-  장미: PlantImage.roseImage,
-  해바라기: PlantImage.sunflowerImage,
-  고구마: PlantImage.sweetPotatoImage,
-  토마토: PlantImage.tomatoImage,
+  사과: PlantImage.apple,
+  바나나: PlantImage.banana,
+  당근: PlantImage.carrot,
+  산삼: PlantImage.ginseng,
+  메론: PlantImage.melon,
+  감자: PlantImage.potato,
+  장미: PlantImage.rose,
+  해바라기: PlantImage.sunflower,
+  고구마: PlantImage.sweetPotato,
+  토마토: PlantImage.tomato,
 };
 
 const createGetImage = (imageTable: ImageTable) => (key: string) => imageTable[key] ?? 'default';
