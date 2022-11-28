@@ -1,16 +1,17 @@
 import React from 'react';
-import type { Seed } from 'seed';
+import { useNavigate } from 'react-router-dom';
+// import type { Seed } from 'seed';
 import { seedList } from 'seed';
 
 const SeedBag: React.FC = () => {
-  const onSeedboxClick = (e: React.MouseEvent<HTMLDivElement>, seed: Seed) => {
-    console.log(seed);
-    // useNavigate('이동 경로', {state:seed})
+  const navigate = useNavigate();
+  const onSeedboxClick = (e: React.MouseEvent<HTMLDivElement>, seedName: string) => {
+    navigate(`/guest/seed/${seedName}`, { state: { seedName } });
   };
   return (
     <div>
       {seedList.map((seed, index) => (
-        <div key={seed.plantName} onClick={(e) => onSeedboxClick(e, seed)}>
+        <div key={seed.plantName} onClick={(e) => onSeedboxClick(e, seed.plantName)}>
           <img src={seed.imgUrl} alt={seed.plantName} />
           <div>
             <span>{seed.plantName}</span>
