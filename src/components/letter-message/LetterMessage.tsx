@@ -1,14 +1,14 @@
 import React from 'react';
 
-interface Props {
-  isText: boolean;
+interface LetterMessageProps {
+  isWritable: boolean;
   content?: string;
 }
 
-const LetterMessage = ({ isText, content }: Props) => {
+const LetterMessage: React.FC<LetterMessageProps> = ({ isWritable, content }) => {
   return (
     <div className='border-2 rounded w-full h-full relative p-8'>
-      {isText ? (
+      {isWritable ? (
         <p className='whitespace-pre-line'>{content}</p>
       ) : (
         <textarea

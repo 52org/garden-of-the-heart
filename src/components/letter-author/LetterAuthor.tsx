@@ -1,14 +1,14 @@
 import React from 'react';
 
-interface Props {
-  isInput: boolean;
+interface LetterAuthorProps {
+  isWritable: boolean;
   author?: string;
 }
 
-const LetterAuthor = ({ isInput, author }: Props) => {
+const LetterAuthor: React.FC<LetterAuthorProps> = ({ isWritable, author }) => {
   return (
     <div>
-      {isInput ? (
+      {isWritable ? (
         <input
           className='border-zinc-300 rounded border-solid border-2 py-2 pl-1 pr-5 text-left'
           type='text'
