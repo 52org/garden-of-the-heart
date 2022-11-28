@@ -1,0 +1,4 @@
+.keywordsContainer {
+  display: flex;
+  flex-direction: column;
+}
