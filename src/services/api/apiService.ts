@@ -1,53 +1,79 @@
+import type { Letter, LetterDetail } from "entities/letter";
+import type { Owner } from "entities/owner";
+import type { PlantDetail } from "entities/plant";
+import type { LetterData } from "entities/request";
+import type { Garden } from "entities/response";
 import type { AllRestFetch } from "utils/api/createFetch";
 import { createAllRestFetchByApi } from "utils/api/fetch/restFetch";
-
-import type { Letter, LetterDetail } from "./entities/letter";
-import type { Plant, PlantDetail } from "./entities/plant";
-import type { LetterData } from "./types/request";
 
 const restAllFetch = createAllRestFetchByApi("api");
 
 export default class ApiService {
 
-  constructor(private fetch: AllRestFetch = restAllFetch) { }
+  private validate<T>(data: any) {
 
-  public async getPlantList(uuid: string) {
+    if (
+      !data
+      || !data.message
+      || data.message !== "success"
+      || data.data === undefined
+      || data.data === null
+    ) {
+      throw new Error(data.message || "error");
+    }
 
-    const data: any = await this.fetch.getFetch(`garden/${uuid}`);
-
-    return data.data as Plant[];
+    return data.data as T;
   }
 
-  public async getDetailPlant(letterId: number) {
+  constructor(private fetch: AllRestFetch = restAllFetch) { }
 
-    const data: any = await this.fetch.getFetch(`garden/detail/${letterId}`);
+  public async postGarden(owner: Owner) {
 
-    return data.data as PlantDetail;
+    const data = await this.fetch.postFetch("garden", owner);
+
+    return this.validate<string>(data);
+  }
+
+  public async getGarden(uuid: string) {
+
+    const data = await this.fetch.getFetch(`garden/${uuid}`);
+
+    return this.validate<Garden>(data);
+  }
+
+  public async getGardenPlantDetail(letterId: string) {
+
+    const data = await this.fetch.getFetch(`garden/detail/${letterId}`);
+
+    return this.validate<PlantDetail>(data);
+  }
+
+  public async putGardenWater(letterId: string) {
+
+    const data = await this.fetch.putFetch(`garden/water/${letterId}`);
+
+    return this.validate<string>(data);
+  }
+
+  public async postLetter(letterData: LetterData) {
+
+    const data = await this.fetch.postFetch(`letter/send`, letterData);
+
+    return this.validate<string>(data);
   }
 
   public async getLetterList(uuid: string) {
 
-    const data: any = await this.fetch.getFetch(`letter/list/${uuid}`);
+    const data = await this.fetch.getFetch(`letter/list/${uuid}`);
 
-    return data.data as Letter[];
+    return this.validate<Letter[]>(data);
   }
 
-  public async getLetterDetail(letterId: number) {
+  public async getLetterDetail(letterId: string) {
 
-    const data: any = await this.fetch.getFetch(`letter/detail/${letterId}`);
+    const data = await this.fetch.getFetch(`letter/detail/${letterId}`);
 
-    return data.data as LetterDetail;
-  }
-
-  public async putWater(letterId: number) {
-
-    const data: any = await this.fetch.putFetch(`garden/water/${letterId}`);
-
-    return data.data;
-  }
-
-  public async postLetter(letterData: LetterData) {
-    return;
+    return this.validate<LetterDetail>(data);
   }
 
 }

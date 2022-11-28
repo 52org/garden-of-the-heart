@@ -1,6 +1,6 @@
 
 export interface Letter {
-  letterId: number;
+  letterId: string;
   plantName: string;
   author: string;
   createDate: Date;
