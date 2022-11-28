@@ -27,6 +27,11 @@ const MessageForm: React.FC = () => {
     setKeyWords((prev) => [...prev, enteredKeyword]);
   };
 
+  const deleteKeyword = (targetKeyword: string) => {
+    const filteredKeywords = keyWords.filter((keyword) => keyword !== targetKeyword);
+    setKeyWords(filteredKeywords);
+  };
+
   const createMessage = (author: string, message: string) => {
     const uuid = Token.getUUID();
 
@@ -42,7 +47,7 @@ const MessageForm: React.FC = () => {
           isMaxKeywords={isMaxKeywords}
           setKeyword={setKeyword}
         />
-        <KeywordList keyWords={keyWords} />
+        <KeywordList keyWords={keyWords} deleteKeyword={deleteKeyword} />
         <button type='submit' form='letter-form'>
           제출
         </button>
