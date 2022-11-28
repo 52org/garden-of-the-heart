@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface LetterMessageProps {
-  isWritable: boolean;
+  isWritable?: true;
   content?: string;
 }
 

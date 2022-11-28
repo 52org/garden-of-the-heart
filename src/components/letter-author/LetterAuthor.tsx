@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface LetterAuthorProps {
-  isWritable: boolean;
+  isWritable?: true;
   author?: string;
 }
 
