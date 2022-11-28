@@ -11,10 +11,10 @@ interface LetterProps {
 const LetterContent: React.FC<LetterProps> = ({ date, message, author }) => {
   return (
     <>
-      <LetterMessage />
-      <div>
+      <LetterMessage content={message} />
+      <div className='absolute right-5 bottom-5 text-right'>
         <p>{date}</p>
-        <LetterAuthor />
+        <LetterAuthor author={author} />
       </div>
     </>
   );
