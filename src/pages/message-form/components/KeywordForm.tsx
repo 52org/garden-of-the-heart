@@ -4,14 +4,17 @@ import React from 'react';
 
 interface KeywordFormProps {
   growingPeriod: number;
+  isMaxKeywords: boolean;
   setKeyword: (enteredKeyword: string) => void;
 }
 
-const KeywordForm: React.FC<KeywordFormProps> = ({ growingPeriod, setKeyword }) => {
+const KeywordForm: React.FC<KeywordFormProps> = ({ growingPeriod, isMaxKeywords, setKeyword }) => {
   const keywordInput = useRef<HTMLInputElement>(null);
 
   const onSubmitKeyword: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+
+    if (!isMaxKeywords) return;
 
     const enteredKeyword = keywordInput.current?.value;
 

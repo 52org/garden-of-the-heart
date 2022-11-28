@@ -1,13 +1,49 @@
 import Letter from 'components/letter';
-import React from 'react';
+import { useAppDispatch } from 'hooks';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { setCreateLetterData } from 'store/modules/base';
+import { getGrowingPeriod } from 'utils';
+import { Token } from 'utils/token';
 
+import KeywordForm from './components/KeywordForm';
 import LetterForm from './components/LetterForm';
 
 const MessageForm: React.FC = () => {
+  const [keyWords, setKeyWords] = useState<string[]>([]);
+
+  const dispatch = useAppDispatch();
+  const { plantName } = useParams();
+
+  if (!plantName) {
+    return null;
+  }
+
+  const growingPeriod = getGrowingPeriod(plantName as string);
+  const isMaxKeywords = keyWords.length === growingPeriod - 1;
+
+  const setKeyword = (enteredKeyword: string) => {
+    setKeyWords((prev) => [...prev, enteredKeyword]);
+  };
+
+  const createMessage = (author: string, message: string) => {
+    const uuid = Token.getUUID();
+
+    dispatch(setCreateLetterData({ uuid, author, message, keyWords, plantName }));
+  };
+
   return (
     <div>
       <Letter receiver='준'>
-        <LetterForm />
+        <LetterForm createMessage={createMessage} />
+        <KeywordForm
+          growingPeriod={growingPeriod}
+          isMaxKeywords={isMaxKeywords}
+          setKeyword={setKeyword}
+        />
+        <button type='submit' form='letter-form'>
+          제출
+        </button>
       </Letter>
     </div>
   );

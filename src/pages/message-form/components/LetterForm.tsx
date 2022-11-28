@@ -1,26 +1,27 @@
-import LetterAuthor from 'components/letter-author';
 import dayjs from 'dayjs';
 import type { FormEventHandler } from 'react';
-import { useState } from 'react';
+import { useRef } from 'react';
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { getGrowingPeriod } from 'utils';
 
-import KeywordForm from './KeywordForm';
+interface LetterFormProps {
+  createMessage: (author: string, message: string) => void;
+}
 
-const LetterForm: React.FC = () => {
-  const [keywordList, setKeywordList] = useState<string[]>([]);
-  const { plantName } = useParams();
+const LetterForm: React.FC<LetterFormProps> = ({ createMessage }) => {
+  const authorInput = useRef<HTMLInputElement>(null);
+  const letterTextArea = useRef<HTMLTextAreaElement>(null);
 
   const currentDate = dayjs().format('YY.MM.DD');
-  const growingPeriod = getGrowingPeriod(plantName as string);
-
-  const setKeyword = (enteredKeyword: string) => {
-    setKeywordList((prev) => [...prev, enteredKeyword]);
-  };
 
   const onLetterSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+
+    const author = authorInput.current?.value;
+    const message = letterTextArea.current?.value;
+
+    if (!author || !message) return;
+
+    createMessage(author, message);
   };
 
   return (
@@ -28,22 +29,19 @@ const LetterForm: React.FC = () => {
       <form onSubmit={onLetterSubmit} id='letter-form'>
         <div>
           <p>{currentDate}</p>
-          <LetterAuthor isWritable />
+          <input
+            className='border-zinc-300 rounded border-solid border-2 py-2 pl-1 pr-5 text-left'
+            type='text'
+            placeholder='보내는 분의 이름을 남겨주세요!'
+            ref={authorInput}
+          />
         </div>
         <textarea
           className='w-full h-full p-4 border-zinc-300 rounded border-solid border-2 focus:outline-zinc-500 resize-none'
           placeholder='편지 내용을 입력해주세요!'
+          ref={letterTextArea}
         ></textarea>
       </form>
-      <KeywordForm growingPeriod={growingPeriod} setKeyword={setKeyword} />
-      <ul>
-        {keywordList.map((keyword, index) => (
-          <li key={`${keyword}-${index}`}>{keyword}</li>
-        ))}
-      </ul>
-      <button type='submit' form='letter-form'>
-        제출
-      </button>
     </>
   );
 };
