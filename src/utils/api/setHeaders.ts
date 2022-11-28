@@ -1,17 +1,17 @@
-import { AxiosRequestConfig, AxiosRequestHeaders } from "axios";
+import type { AxiosRequestConfig, AxiosRequestHeaders } from "axios";
 
 export function setHeaders(
-  axiosRequestConfig: AxiosRequestConfig, 
+  axiosRequestConfig: AxiosRequestConfig,
   defaultHeaders?: AxiosRequestHeaders
 ): AxiosRequestConfig {
 
-  if(!defaultHeaders) {
+  if (!defaultHeaders) {
     return axiosRequestConfig;
   }
 
   let headers: AxiosRequestHeaders = defaultHeaders;
 
-  if(axiosRequestConfig.headers) {
+  if (axiosRequestConfig.headers) {
     headers = Object.assign(headers, axiosRequestConfig.headers);
   }
 

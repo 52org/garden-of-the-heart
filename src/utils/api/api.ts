@@ -1,10 +1,12 @@
-import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse, type AxiosError, AxiosRequestHeaders } from "axios";
+import type { AxiosInstance, AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse } from "axios";
+import axios, { type AxiosError } from "axios";
 import { cacheAdapterEnhancer } from 'axios-extensions';
 import { stringify } from "qs";
+
 import { ApiError } from "./apiError";
 import { setHeaders } from "./setHeaders";
-import { IRestObject } from "./types";
-import { ApiErrorType } from "./types/error";
+import type { IRestObject } from "./types";
+import type { ApiErrorType } from "./types/error";
 
 export class Api {
 
@@ -76,7 +78,7 @@ export class Api {
         });
 
     });
-  };
+  }
 }
 
 export class Rest extends Api {
