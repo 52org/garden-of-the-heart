@@ -1,3 +1,4 @@
+import Waiting from 'components/waiting';
 import useGetLetterList from 'hooks/useGetLetterList';
 import React from 'react';
 
@@ -11,20 +12,16 @@ const MessageBox: React.FC = () => {
   }
 
   return (
-    <>
-      {isLoading ? (
-        <div className='flex items-center justify-center text-xl'>로딩중...</div>
-      ) : (
-        <div className='h-screen px-8 mx-auto rounded'>
-          <h1 className='py-5 text-2xl text-center'>{data[0].author} 님의 편지 리스트</h1>
-          <ul className='[&>li]:mb-7 rounded overflow-scroll h-screen scroll'>
-            {data?.map((item) => (
-              <MessageBoxItem key={item.letterId} letter={item} />
-            ))}
-          </ul>
-        </div>
-      )}
-    </>
+    <Waiting loading={isLoading}>
+      <div className='h-screen px-8 mx-auto rounded'>
+        <h1 className='py-5 text-2xl text-center'>{data[0].author} 님의 편지 리스트</h1>
+        <ul className='[&>li]:mb-7 rounded overflow-scroll h-screen scroll'>
+          {data.map((item) => (
+            <MessageBoxItem key={item.letterId} letter={item} />
+          ))}
+        </ul>
+      </div>
+    </Waiting>
   );
 };
 
