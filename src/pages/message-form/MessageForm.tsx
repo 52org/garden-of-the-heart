@@ -1,7 +1,7 @@
 import Letter from 'components/letter';
 import { useAppDispatch } from 'hooks';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { setCreateLetterData } from 'store/modules/base';
 import { getGrowingPeriod } from 'utils';
 import { Token } from 'utils/token';
@@ -14,6 +14,7 @@ const MessageForm: React.FC = () => {
   const [keyWords, setKeyWords] = useState<string[]>([]);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { plantName } = useParams();
 
   if (!plantName) {
@@ -36,6 +37,7 @@ const MessageForm: React.FC = () => {
     const uuid = Token.getUUID();
 
     dispatch(setCreateLetterData({ uuid, author, message, keyWords, plantName }));
+    navigate('/createLetter');
   };
 
   return (
