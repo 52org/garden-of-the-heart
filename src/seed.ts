@@ -38,7 +38,7 @@ export const seedList: SeedList = [
     imgUrl: PlantImage.banana,
     plantName: '바나나',
     growingPeriod: 1,
-    description: '바나나를 먹으면 나한테 반ㅎ<br>아니.',
+    description: '바나나를 먹으면 나한테 반ㅎ아니.',
   },
   {
     imgUrl: PlantImage.melon,
@@ -110,7 +110,7 @@ export const SeedTable: SeedTableType = {
     growingPeriod: 1,
     description: {
       skill: '길 가다가 미끄러졌는데 눈떠보니 내 옆자리 ~',
-      description: '바나나를 먹으면 나한테 반ㅎ<br>아니.',
+      description: '바나나를 먹으면 나한테 반ㅎ아니.',
     },
   },
   메론: {

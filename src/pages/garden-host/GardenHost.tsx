@@ -10,6 +10,9 @@ const GardenHost: React.FC<GardenHostProps> = ({ plantList }) => {
   return (
     <div>
       <Link to='/messagebox'>편지함으로</Link>
+      <div>
+        <Link to='/seedbag'>씨드백</Link>
+      </div>
     </div>
   );
 };
