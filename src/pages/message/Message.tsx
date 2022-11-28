@@ -1,13 +1,12 @@
 import dayjs from 'dayjs';
 import useGetLetterDetail from 'hooks/useGetLetterDetail';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Message: React.FC = () => {
-  const { pathname } = useLocation();
-  const letterId = pathname.split('/')[2];
+  const { letterId } = useParams();
 
-  const { isLoading, data } = useGetLetterDetail(letterId);
+  const { isLoading, data } = useGetLetterDetail(letterId as string);
 
   return (
     <>
