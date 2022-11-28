@@ -6,7 +6,7 @@ import { seedList } from 'seed';
 const SeedBag: React.FC = () => {
   const navigate = useNavigate();
   const onSeedboxClick = (e: React.MouseEvent<HTMLDivElement>, seedName: string) => {
-    navigate(`/guest/seed/${seedName}`, { state: { seedName } });
+    navigate(`/seed/${seedName}`, { state: { seedName } });
   };
   return (
     <div className='bg-bgColor text-center mt-5 mb-3'>
