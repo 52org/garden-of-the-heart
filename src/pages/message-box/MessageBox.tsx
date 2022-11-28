@@ -13,10 +13,10 @@ const MessageBox: React.FC = () => {
   return (
     <>
       {isLoading ? (
-        <div className='flex justify-center items-center text-xl'>로딩중...</div>
+        <div className='flex items-center justify-center text-xl'>로딩중...</div>
       ) : (
-        <div className='mx-auto px-8 rounded h-screen'>
-          <h1 className='text-center text-2xl py-5'>{data[0].author} 님의 편지 리스트</h1>
+        <div className='h-screen px-8 mx-auto rounded'>
+          <h1 className='py-5 text-2xl text-center'>{data[0].author} 님의 편지 리스트</h1>
           <ul className='[&>li]:mb-7 rounded overflow-scroll h-screen scroll'>
             {data?.map((item) => (
               <MessageBoxItem key={item.letterId} letter={item} />

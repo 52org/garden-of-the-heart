@@ -17,11 +17,11 @@ const MessageBoxItem = ({ letter }: Props) => {
   return (
     <li className='rounded-lg bg-[#DBF2A9] px-5 mx-auto'>
       <Link to={`/message/${letterId}`} className='flex items-center'>
-        <div className='w-2/5 object-cover'>
+        <div className='object-cover w-2/5'>
           <img src={imageUrl} alt={plantName} />
         </div>
-        <div className='text-left ml-10'>
-          <p className='text-lg font-bold mb-3'>
+        <div className='ml-10 text-left'>
+          <p className='mb-3 text-lg font-bold'>
             {author}의 {plantName}
           </p>
           <p className='text-sm'>{date}</p>
