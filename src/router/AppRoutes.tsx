@@ -1,6 +1,7 @@
 import Home from 'pages/home';
 import Message from 'pages/message';
 import MessageBox from 'pages/message-box';
+import MessageForm from 'pages/message-form';
 import Plant from 'pages/plant/Plant';
 import Seed from 'pages/seed';
 import SeedBag from 'pages/seed-bag';
@@ -19,6 +20,7 @@ const AppRoutes: React.FC = () => (
       <Route path='seed/:plantName' element={<Seed />} />
       <Route path='plant/:letterId' element={<Plant />} />
       <Route path='messagebox' element={<MessageBox />} />
+      <Route path='messageform' element={<MessageForm />} />
       <Route path='message/:letterId' element={<Message />} />
       <Route path='/*' element={<Redirect to='/home' />} />
     </Route>

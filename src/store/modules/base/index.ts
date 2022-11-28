@@ -19,7 +19,7 @@ const initialState: BaseState = {
   isLoading: false,
   createOwnerData: null,
   createLetterData: null,
-  errorMessage: null
+  errorMessage: null,
 };
 
 const baseSlice = createSlice({
@@ -60,7 +60,7 @@ const baseSlice = createSlice({
     },
     clearBase: () => {
       return initialState;
-    }
+    },
   },
 });
 
@@ -73,7 +73,7 @@ export const {
   changeIsLoading,
   clearCreateOwnerData,
   clearCreateLetterData,
-  clearBase
+  clearBase,
 } = baseSlice.actions;
 
 export const base = baseSlice.reducer;
