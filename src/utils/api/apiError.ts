@@ -1,4 +1,4 @@
-import { ApiErrorType } from "./types/error";
+import type { ApiErrorType } from "./types/error";
 
 /**
   
@@ -16,20 +16,20 @@ import { ApiErrorType } from "./types/error";
 */
 
 export class ApiError implements ApiErrorType {
-  type: string = "unknown";
+  type = "unknown";
   code: string | number = "000";
-  message: string = "알 수 없는 오류입니다.";
-  detail: string = "unknown";
+  message = "알 수 없는 오류입니다.";
+  detail = "unknown";
 
   constructor(error?: any) {
-    if(error) this.build(error);
+    if (error) this.build(error);
   }
 
   build(error: any) {
-    if(error.type) this.type = error.type;
-    if(error.code) this.code = error.code;
-    if(error.message) this.message = error.message;
-    if(error.detail) this.detail = error.detail;
+    if (error.type) this.type = error.type;
+    if (error.code) this.code = error.code;
+    if (error.message) this.message = error.message;
+    if (error.detail) this.detail = error.detail;
 
     return this;
   }
@@ -52,7 +52,7 @@ export class ApiError implements ApiErrorType {
   setDetail(detail: string): ApiError {
     this.detail = detail;
     return this;
-  } 
+  }
 
   get(): ApiErrorType {
     return {

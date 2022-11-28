@@ -1,9 +1,12 @@
-import React from "react";
+import type { Plant } from 'entities/plant';
+import React from 'react';
 
-const GardenGuest: React.FC = () => {
-  return (
-    <div></div>
-  );
+interface GardenGuestProps {
+  plantList: Plant[];
 }
+
+const GardenGuest: React.FC<GardenGuestProps> = ({ plantList }) => {
+  return <div></div>;
+};
 
 export default GardenGuest;

@@ -1,8 +1,8 @@
-import { AxiosRequestConfig, ResponseType } from "axios";
+import type { AxiosRequestConfig, ResponseType } from "axios";
 
 export type ResType<T = any> = T;
 
-export interface RequestArg<Data = any , Params = any> {
+export interface RequestArg<Data = any, Params = any> {
   method: AxiosRequestConfig["method"];
   url: string;
   data?: Data;
@@ -11,16 +11,16 @@ export interface RequestArg<Data = any , Params = any> {
 }
 
 export interface IRestObject {
-  url    : string,
-  method : string,
+  url: string,
+  method: string,
   header?: string,
-  qs    ?: any,
-  data  ?: any,
+  qs?: any,
+  data?: any,
   withCredentials?: boolean;
   responseType?: ResponseType;
 }
 
 export interface IGqlObject {
   variables?: object,
-  query     : string
+  query: string
 }
