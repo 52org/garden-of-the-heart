@@ -13,7 +13,7 @@ const MessageBoxItem = ({ plantName, author, createDate }: Props) => {
   const date = useMemo(() => dayjs(createDate, 'YYYY-MM-DD').format('YY.MM.DD'), [createDate]);
 
   return (
-    <li className='flex items-center rounded-lg bg-[#DBF2A9] px-5 mx-auto'>
+    <li className='flex items-center rounded-lg bg-[#DBF2A9] px-5 mx-auto mb-5'>
       <div className='w-2/5 object-cover'>
         <img src={imageUrl} alt={plantName} />
       </div>
