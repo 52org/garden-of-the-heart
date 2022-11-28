@@ -1,5 +1,6 @@
-import { ResponseType } from "axios";
-import { Rest } from "./api";
+import type { ResponseType } from "axios";
+
+import type { Rest } from "./api";
 
 export const createGetRestFetch = (baseRestFetch: Rest) => (basePath: string) => {
   return (path: string, query?: object, responseType?: ResponseType) => baseRestFetch.restApi({
@@ -11,7 +12,7 @@ export const createGetRestFetch = (baseRestFetch: Rest) => (basePath: string) =>
   });
 }
 
-export const createRestFetch =  (baseRestFetch: Rest) => (basePath: string, method: string) => {
+export const createRestFetch = (baseRestFetch: Rest) => (basePath: string, method: string) => {
   return (path: string, data?: object | any[], query?: object) => baseRestFetch.restApi({
     method,
     url: `${basePath}/${path}`,
