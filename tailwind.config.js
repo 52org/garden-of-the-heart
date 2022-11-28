@@ -24,6 +24,7 @@ module.exports = {
         },
         textColor: {
           100: '1d2820',
+          200: '#e7dfd4',
         },
       },
     },
