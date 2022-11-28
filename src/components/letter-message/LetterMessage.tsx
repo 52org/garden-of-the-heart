@@ -1,7 +1,23 @@
 import React from 'react';
 
-const LetterMessage: React.FC = () => {
-  return <div></div>;
+interface Props {
+  isText: boolean;
+  content?: string;
+}
+
+const LetterMessage = ({ isText, content }: Props) => {
+  return (
+    <div className='border-2 rounded w-full h-full relative p-8'>
+      {isText ? (
+        <p className='whitespace-pre-line'>{content}</p>
+      ) : (
+        <textarea
+          className='w-full h-full p-4 border-zinc-300 rounded border-solid border-2 focus:outline-zinc-500 resize-none'
+          placeholder='편지 내용을 입력해주세요!'
+        ></textarea>
+      )}
+    </div>
+  );
 };
 
 export default LetterMessage;
