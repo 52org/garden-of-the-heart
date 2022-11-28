@@ -14,7 +14,7 @@ const KeywordForm: React.FC<KeywordFormProps> = ({ growingPeriod, isMaxKeywords,
   const onSubmitKeyword: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    if (!isMaxKeywords) return;
+    if (isMaxKeywords) return;
 
     const enteredKeyword = keywordInput.current?.value;
 

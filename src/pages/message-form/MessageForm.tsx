@@ -7,6 +7,7 @@ import { getGrowingPeriod } from 'utils';
 import { Token } from 'utils/token';
 
 import KeywordForm from './components/KeywordForm';
+import KeywordList from './components/KeywordList';
 import LetterForm from './components/LetterForm';
 
 const MessageForm: React.FC = () => {
@@ -41,6 +42,7 @@ const MessageForm: React.FC = () => {
           isMaxKeywords={isMaxKeywords}
           setKeyword={setKeyword}
         />
+        <KeywordList keyWords={keyWords} />
         <button type='submit' form='letter-form'>
           제출
         </button>
