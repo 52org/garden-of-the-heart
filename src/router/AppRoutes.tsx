@@ -19,7 +19,7 @@ const AppRoutes: React.FC = () => (
     <Route path='guest'>
       <Route path='garden' element={<GardenGuest />} />
       <Route path='seed-bag' element={<SeedBag />} />
-      <Route path='seed' element={<Seed />} />
+      <Route path='seed/:id' element={<Seed />} />
     </Route>
   </Routes>
 );
