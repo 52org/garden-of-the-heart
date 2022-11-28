@@ -24,6 +24,10 @@ const MessageForm: React.FC = () => {
   const growingPeriod = getGrowingPeriod(plantName as string);
   const isMaxKeywords = keyWords.length === growingPeriod - 1;
 
+  if (!growingPeriod) {
+    return null;
+  }
+
   const setKeyword = (enteredKeyword: string) => {
     setKeyWords((prev) => [...prev, enteredKeyword]);
   };

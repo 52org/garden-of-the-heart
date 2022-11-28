@@ -1,4 +1,5 @@
 import * as PlantImage from 'assets/image/plants';
+import { SeedTable } from 'seed';
 
 interface ImageTable {
   [key: string]: string;
@@ -20,3 +21,7 @@ const plantImageTable = {
 const createGetImage = (imageTable: ImageTable) => (key: string) => imageTable[key] ?? 'default';
 
 export const getPlantImage = createGetImage(plantImageTable);
+
+export const getSeedInfo = (plantName: string) => SeedTable[plantName];
+
+export const getGrowingPeriod = (plantName: string) => getSeedInfo(plantName)?.growingPeriod;
