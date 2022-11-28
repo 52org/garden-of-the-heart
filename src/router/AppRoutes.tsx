@@ -1,3 +1,4 @@
+import CreateOwner from 'pages/create-owner';
 import Home from 'pages/home';
 import Message from 'pages/message';
 import MessageBox from 'pages/message-box';
@@ -25,6 +26,7 @@ const AppRoutes: React.FC = () => (
       <Route path='/*' element={<Redirect to='/home' />} />
     </Route>
     <Route path='home' element={<Home />} />
+    <Route path='create-owner' element={<CreateOwner />} />
     <Route path='host/garden/:uuid' element={<GardenHostPage />} />
     <Route path='guest/garden/:uuid' element={<GardenGuestPage />} />
     <Route path='*' element={<Redirect to='/home' />} />
