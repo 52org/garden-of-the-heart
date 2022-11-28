@@ -8,9 +8,7 @@ const MessageForm: React.FC = () => {
 
   return (
     <div>
-      <Letter receiver='준'>
-        <LetterForm onSubmit={() => {}} />
-      </Letter>
+      <Letter receiver='준'>{/* <LetterForm onSubmit={() => {}} /> */}</Letter>
     </div>
   );
 };
