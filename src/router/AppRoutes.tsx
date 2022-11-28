@@ -20,7 +20,7 @@ const AppRoutes: React.FC = () => (
       <Route path='seed/:plantName' element={<Seed />} />
       <Route path='plant/:letterId' element={<Plant />} />
       <Route path='messagebox' element={<MessageBox />} />
-      <Route path='messageform' element={<MessageForm />} />
+      <Route path='messageform/:plantName' element={<MessageForm />} />
       <Route path='message/:letterId' element={<Message />} />
       <Route path='/*' element={<Redirect to='/home' />} />
     </Route>
