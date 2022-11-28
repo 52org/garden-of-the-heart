@@ -2,14 +2,21 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from 'store';
 
+interface Owner {
+  uuid: string;
+  name: string;
+}
+
 interface BaseState {
   uuid: string | null;
   name: string | null;
+  createOwnerData: Owner | null;
 }
 
 const initialState: BaseState = {
   uuid: null,
-  name: null
+  name: null,
+  createOwnerData: null
 };
 
 const baseSlice = createSlice({
@@ -22,7 +29,13 @@ const baseSlice = createSlice({
     initName: (state, { payload }: PayloadAction<string>) => {
       state.name = payload;
     },
-    clearBase: (state) => {
+    initCreateOwnerData: (state, { payload }: PayloadAction<Owner>) => {
+      state.createOwnerData = payload;
+    },
+    clearCreateOwnerData: (state) => {
+      state.createOwnerData = null;
+    },
+    clearBase: () => {
       return initialState;
     }
   },
