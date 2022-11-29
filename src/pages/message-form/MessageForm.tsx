@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { setCreateLetterData } from 'store/modules/base';
 import { getGrowingPeriod } from 'utils';
-import { Token } from 'utils/token';
 
 import KeywordForm from './components/KeywordForm';
 import KeywordList from './components/KeywordList';
@@ -16,7 +15,7 @@ const MessageForm: React.FC = () => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { name } = useAppSelector((state) => state.base);
+  const { uuid, name } = useAppSelector((state) => state.base);
   const { plantName } = useParams();
 
   if (!plantName) {
@@ -41,10 +40,10 @@ const MessageForm: React.FC = () => {
   };
 
   const createMessage = (author: string, message: string) => {
-    const uuid = Token.getUUID();
-
-    dispatch(setCreateLetterData({ uuid, author, message, keyWords, plantName }));
-    navigate('/create-letter');
+    if (uuid) {
+      dispatch(setCreateLetterData({ uuid, author, message, keyWords, plantName }));
+      navigate('/create-letter');
+    }
   };
 
   return (
