@@ -3,16 +3,16 @@ import React from 'react';
 
 interface KeywordListProps {
   keyWords: string[];
-  deleteKeyword: (targetKeyword: string) => void;
+  deleteKeyword: (targetIndex: number) => void;
 }
 
 const KeywordList: React.FC<KeywordListProps> = ({ keyWords, deleteKeyword }) => {
   const onKeywordClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    const { keyword } = e.currentTarget.dataset;
+    const { index } = e.currentTarget.dataset;
 
-    if (!keyword) return;
+    if (!index) return;
 
-    deleteKeyword(keyword);
+    deleteKeyword(Number(index));
   };
 
   return (
@@ -25,6 +25,7 @@ const KeywordList: React.FC<KeywordListProps> = ({ keyWords, deleteKeyword }) =>
           <button
             type='button'
             onClick={onKeywordClick}
+            data-index={index}
             data-keyword={keyword}
             className='px-3 py-1 pr-1.5'
           >
