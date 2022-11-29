@@ -12,7 +12,7 @@ import KeywordList from './components/KeywordList';
 import LetterForm from './components/LetterForm';
 
 const MessageForm: React.FC = () => {
-  const [keywords, setKeyWords] = useState<string[]>([]);
+  const [keyWords, setKeyWords] = useState<string[]>([]);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const MessageForm: React.FC = () => {
 
   const currentDate = dayjs().format('YY.MM.DD');
   const growingPeriod = getGrowingPeriod(plantName as string);
-  const isMaxKeywords = keywords.length === growingPeriod - 1;
+  const isMaxKeywords = keyWords.length === growingPeriod - 1;
 
   if (!growingPeriod) {
     return null;
@@ -36,14 +36,14 @@ const MessageForm: React.FC = () => {
   };
 
   const deleteKeyword = (targetIndex: number) => {
-    const filteredKeywords = keywords.filter((_, index) => index !== targetIndex);
+    const filteredKeywords = keyWords.filter((_, index) => index !== targetIndex);
     setKeyWords(filteredKeywords);
   };
 
   const createMessage = (author: string, message: string) => {
     const uuid = Token.getUUID();
 
-    dispatch(setCreateLetterData({ uuid, author, message, keywords, plantName }));
+    dispatch(setCreateLetterData({ uuid, author, message, keyWords, plantName }));
     navigate('/create-letter');
   };
 
@@ -56,7 +56,7 @@ const MessageForm: React.FC = () => {
           isMaxKeywords={isMaxKeywords}
           setKeyword={setKeyword}
         />
-        <KeywordList keyWords={keywords} deleteKeyword={deleteKeyword} />
+        <KeywordList keyWords={keyWords} deleteKeyword={deleteKeyword} />
         <p className='mr-2 text-right'>{currentDate}</p>
 
         <div className='flex justify-center w-full'>
