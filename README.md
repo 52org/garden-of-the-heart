@@ -19,6 +19,7 @@
 **👨‍🌾 쉽게 나의 텃밭을 만들 수 있어요. 친구들에게도 나의 텃밭을 공유할 수 있어요!**
 <div align="center">
   <img src="https://user-images.githubusercontent.com/59170680/204515381-d3cde89b-a2e7-4636-a156-bf3f3d15f449.PNG" width="30%" />
+  <img src="https://user-images.githubusercontent.com/59170680/204551172-7979e098-d44f-45b1-b245-4a4cfdcabdf5.PNG" width="30%" />
 </div>
 
 <br/><br/>
