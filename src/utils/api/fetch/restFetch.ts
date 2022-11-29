@@ -1,7 +1,7 @@
 import { Rest } from "../api";
 import { createAllRestFetch } from "../createFetch";
 
-export const apiUrl = "http://demo-1.eba-iqwydbrb.ap-northeast-2.elasticbeanstalk.com";
+export const apiUrl = "https://bluewow.link";
 
 export const restFetch = new Rest(apiUrl);
 

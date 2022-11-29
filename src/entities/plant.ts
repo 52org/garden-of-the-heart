@@ -8,5 +8,5 @@ export interface Plant {
 export interface PlantDetail {
   plantName: string;
   wateringCount: number;
-  keywords: string[];
+  keyWords: string[];
 }

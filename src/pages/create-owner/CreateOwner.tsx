@@ -48,7 +48,7 @@ const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
       navigate(`/host/garden/${owner.uuid}`);
       dispatch(clearCreateOwnerData());
     } else {
-      toast.loading('아직 생성중입니다!');
+      toast.info('아직 생성중입니다!');
     }
   }, [check, isLoading, owner, navigate, dispatch]);
 

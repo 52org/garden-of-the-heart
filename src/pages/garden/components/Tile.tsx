@@ -21,7 +21,10 @@ const Tile: React.FC<TileProps> = ({ plant, isHost }) => {
   }, [plant, isHost, navigate]);
 
   return (
-    <button onClick={moveToPlantDetail} className='w-[120px] h-[120px] bg-black bg-opacity-20'>
+    <button
+      onClick={moveToPlantDetail}
+      className='m-0 p-0 block w-[120px] h-[120px] bg-black bg-opacity-20'
+    >
       <div className='relative overflow-hidden'>
         <img src={imgUrl} alt='직물' />
       </div>

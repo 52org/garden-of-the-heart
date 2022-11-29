@@ -1,7 +1,9 @@
 import type { Plant } from 'entities/plant';
 import React from 'react';
 
+import Background from './components/Background';
 import Ground from './components/Ground';
+import Title from './components/Tiltle';
 import UrlShareButton from './components/UrlShareButton';
 
 interface GardenProps {
@@ -11,13 +13,15 @@ interface GardenProps {
 
 const Garden: React.FC<GardenProps> = (props) => {
   return (
-    <div className='flex items-center justify-center w-full h-full'>
-      <div className='relative py-[70px]'>
+    <div className='relative flex items-center justify-center w-full h-full'>
+      <div className='relative py-[100px] z-20'>
+        <Title />
         <Ground {...props} />
         <div className='absolute bottom-0 right-0'>
           <UrlShareButton />
         </div>
       </div>
+      <Background />
     </div>
   );
 };

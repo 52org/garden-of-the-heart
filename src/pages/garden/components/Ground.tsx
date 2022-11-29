@@ -10,7 +10,7 @@ interface GroundProps {
 
 const Ground: React.FC<GroundProps> = ({ plantList, isHost }) => {
   return (
-    <div className='w-[360px] h-[360px] flex-wrap bg-groundColor-100 flex justify-start overflow-hidden'>
+    <div className='w-[360px] h-[360px] grid grid-cols-3 grid-rows-3 gap-0 bg-groundColor-100 overflow-hidden opacity-90 rounded-md'>
       {plantList.map((plant) => (
         <Tile key={plant.letterId} plant={plant} isHost={isHost} />
       ))}
