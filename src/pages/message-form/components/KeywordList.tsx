@@ -27,10 +27,13 @@ const KeywordList: React.FC<KeywordListProps> = ({ keyWords, deleteKeyword }) =>
             onClick={onKeywordClick}
             data-index={index}
             data-keyword={keyword}
-            className='px-3 py-1'
+            className='px-3 py-1 pr-1.5'
           >
             {keyword}
           </button>
+          <em className='text-yellow-200 px-[4px] not-italic text-base -translate-y-10 mr-1.5'>
+            X
+          </em>
         </li>
       ))}
     </ul>

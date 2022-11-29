@@ -9,7 +9,7 @@ const SeedBag: React.FC = () => {
   };
 
   return (
-    <div className='relative pt-5 text-center bg-bgColor-100 h-full'>
+    <div className='pt-5 text-center bg-bgColor-100 h-full'>
       <span className='font-extrabold font-xxl'>씨앗 주머니</span>
       <div className='flex flex-wrap justify-center mt-2 h-4/5 overflow-y-scroll'>
         {seedList.map((seed) => (

@@ -58,7 +58,7 @@ const LetterForm: React.FC<LetterFormProps> = ({ createMessage }) => {
           {isAuthorEmpty && <p className='text-red-400'>* 이름을 입력해주세요</p>}
         </div>
         <textarea
-          className='leading-loose w-full p-4 border-borderColor-100 rounded border-solid border-2 focus:outline-borderColor-200 resize-none  bg-bgColor-100 outline-none flex-auto underline decoration-2 underline-offset-4 decoration-btnColor-200'
+          className='leading-loose w-full p-4 border-borderColor-100 rounded border-solid border-2 focus:outline-borderColor-200 resize-none  bg-bgColor-100 outline-none flex-auto'
           style={{
             height: '30vh',
           }}
