@@ -9,6 +9,7 @@ const Plant: React.FC = () => {
   // const { letterId } = useParams();
   const navigate = useNavigate();
 
+  // letterId로 바꾸면 됩니다
   const { isLoading, data } = useGetPlantDetail(String(22));
 
   if (!data || !Array.isArray(data.keywords)) {
@@ -18,10 +19,12 @@ const Plant: React.FC = () => {
   const plantImage = getPlantDetailImage(data?.wateringCount, data?.plantName);
   const growingPeriod = getGrowingPeriod(data?.plantName);
 
+  // 물주기 로직 작성하면 됩니다
   const onWateringClick: MouseEventHandler<HTMLButtonElement> = () => {
     console.log(data);
   };
 
+  // letterId로 바꾸면 됩니다
   const onViewLetterClick: MouseEventHandler<HTMLButtonElement> = () => {
     navigate(`message/2`);
   };
