@@ -10,8 +10,25 @@ const Plant: React.FC = () => {
   if (!data || !Array.isArray(data.keywords)) {
     return null;
   }
+
   const plantImage = getPlantDetailImage(data?.wateringCount, data?.plantName);
   // const growingPeriod = getGrowingPeriod(data?.plantName);
+
+  const keywordItem = (word: string, idx: number) => {
+    if (idx >= data?.wateringCount) {
+      return (
+        <li className='blur-sm w-fit bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-20'>
+          <p>비밀</p>
+        </li>
+      );
+    }
+
+    return (
+      <li>
+        <p>{word}</p>
+      </li>
+    );
+  };
 
   return (
     <Waiting loading={isLoading}>
@@ -25,24 +42,7 @@ const Plant: React.FC = () => {
           <p>{data?.wateringCount}번 물을 줬어요</p>
         </div>
         <ul className='p-5 list-decimal'>
-          {data?.keywords.map((word, idx) => {
-            if (idx >= data?.wateringCount) {
-              return (
-                <li
-                  key={`${word}-${idx}`}
-                  className='blur-sm w-fit bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-20'
-                >
-                  <p>비밀</p>
-                </li>
-              );
-            }
-
-            return (
-              <li key={`${word}-${idx}`}>
-                <p>{word}</p>
-              </li>
-            );
-          })}
+          {data?.keywords.map((word, idx) => keywordItem(word, idx))}
         </ul>
       </div>
     </Waiting>
