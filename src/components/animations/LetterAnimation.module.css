@@ -14,20 +14,26 @@ body {
   perspective: 1000;
 }
 #letter {
-  animation: 6s slideLetter infinite ease-in-out;
+  animation: 3s slideLetter ease-in-out;
+  transform: translate3d(0, 190px, 0);
 }
 @keyframes slideLetter {
-  40%,
-  60% {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
     transform: translate3d(0, 190px, 0);
   }
 }
 #envolope {
-  animation: 6s slideEnvo infinite ease-in-out;
+  animation: 3s slideEnvo ease-in-out;
+  transform: translate3d(0, -190px, 0);
 }
 @keyframes slideEnvo {
-  45%,
-  55% {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
     transform: translate3d(0, -190px, 0);
   }
 }

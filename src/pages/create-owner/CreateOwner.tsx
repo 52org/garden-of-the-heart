@@ -2,6 +2,7 @@ import ErrorModal from 'components/error-modal';
 import type { Owner } from 'entities/owner';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import useCreateGarden from 'hooks/useCreateGarden';
+import useTimer from 'hooks/useSecondsTimer';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -14,12 +15,19 @@ interface CreateOwnerProps {
 
 const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
   const [isErrorModal, setErrorModal] = useState<boolean>(false);
+  const [check, setCheck] = useState<boolean>(false);
 
-  const { errorMessage } = useAppSelector((state) => state.base);
+  const endCallback = useCallback(() => {
+    setCheck(true);
+  }, []);
+
+  useTimer(4, endCallback);
+
+  const { errorMessage, isLoading } = useAppSelector((state) => state.base);
 
   const hostUrl = useMemo(() => `${HOST_URL}/host/garden/${owner.uuid}`, [owner]);
 
-  const { isSuccess, mutate } = useCreateGarden();
+  const { mutate } = useCreateGarden();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -36,11 +44,13 @@ const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
   }, [hostUrl]);
 
   const moveHostGarden = useCallback(() => {
-    if (isSuccess) {
+    if (check && !isLoading) {
       navigate(`/host/garden/${owner.uuid}`);
       dispatch(clearCreateOwnerData());
+    } else {
+      toast.loading('아직 생성중입니다!');
     }
-  }, [isSuccess, owner, navigate, dispatch]);
+  }, [check, isLoading, owner, navigate, dispatch]);
 
   const closeModal = useCallback(() => {
     setErrorModal(false);

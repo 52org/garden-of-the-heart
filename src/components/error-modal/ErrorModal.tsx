@@ -86,7 +86,10 @@ const ErrorModal: React.FC<ModalProps> = ({
               </div>
 
               <div className='flex items-center justify-end px-6 py-3 bg-zinc-50'>
-                <button className='bg-red-300' onClick={closeModal}>
+                <button
+                  className='px-4 bg-red-300 border-none rounded outline-none hover:bg-red-500'
+                  onClick={closeModal}
+                >
                   확인
                 </button>
               </div>

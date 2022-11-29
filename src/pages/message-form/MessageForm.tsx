@@ -41,7 +41,7 @@ const MessageForm: React.FC = () => {
     const uuid = Token.getUUID();
 
     dispatch(setCreateLetterData({ uuid, author, message, keywords, plantName }));
-    navigate('/createletter');
+    navigate('/create-letter');
   };
   const currentDate = dayjs().format('YY.MM.DD');
 
