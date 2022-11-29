@@ -1,6 +1,7 @@
 import type { Plant } from 'entities/plant';
 import React, { useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { getPlantImage } from '../utils/getPlantImage';
 
@@ -17,6 +18,8 @@ const Tile: React.FC<TileProps> = ({ plant, isHost }) => {
   const moveToPlantDetail = useCallback(() => {
     if (isHost) {
       navigate(`/plant/${plant.letterId}`);
+    } else {
+      toast.info('텃밭의 주인이 물을 주면서 당신의 편지를 기다릴거에요. 😊');
     }
   }, [plant, isHost, navigate]);
 
