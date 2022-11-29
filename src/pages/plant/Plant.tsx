@@ -1,16 +1,17 @@
 import Waiting from 'components/waiting';
 import useGetPlantDetail from 'hooks/useGetPlantDetail';
 import React from 'react';
-import { getPlantImage } from 'utils';
+import { getPlantDetailImage } from 'utils';
 
 const Plant: React.FC = () => {
   // const { letterId } = useParams();
   const { isLoading, data } = useGetPlantDetail(String(2));
 
-  if (!data) {
+  if (!data || !Array.isArray(data.keywords)) {
     return null;
   }
-  const plantImage = getPlantImage(data?.plantName);
+  const plantImage = getPlantDetailImage(data?.wateringCount, data?.plantName);
+  // const growingPeriod = getGrowingPeriod(data?.plantName);
 
   return (
     <Waiting loading={isLoading}>
@@ -24,12 +25,24 @@ const Plant: React.FC = () => {
           <p>{data?.wateringCount}번 물을 줬어요</p>
         </div>
         <ul className='p-5 list-decimal'>
-          {Array.isArray(data.keywords) &&
-            data?.keywords.map((word, idx) => (
+          {data?.keywords.map((word, idx) => {
+            if (idx >= data?.wateringCount) {
+              return (
+                <li
+                  key={`${word}-${idx}`}
+                  className='blur-sm w-fit bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-20'
+                >
+                  <p>비밀</p>
+                </li>
+              );
+            }
+
+            return (
               <li key={`${word}-${idx}`}>
                 <p>{word}</p>
               </li>
-            ))}
+            );
+          })}
         </ul>
       </div>
     </Waiting>
