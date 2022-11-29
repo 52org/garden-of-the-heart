@@ -11,7 +11,7 @@ const SeedBag: React.FC = () => {
 
   return (
     <div className='mt-5 mb-3 text-center bg-bgColor-100'>
-      <span className='font-extrabold font-xxl'>씨앗 주머니</span>
+      <span className='font-extrabold text-2xl'>씨앗 주머니</span>
       <div className='flex flex-wrap justify-center'>
         {seedList.map((seed, index) => (
           <div
