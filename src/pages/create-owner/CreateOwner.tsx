@@ -1,3 +1,4 @@
+import { clipboard } from 'assets/image';
 import ErrorModal from 'components/error-modal';
 import type { Owner } from 'entities/owner';
 import { useAppDispatch, useAppSelector } from 'hooks';
@@ -69,18 +70,35 @@ const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
   }, [errorMessage]);
 
   return (
-    <div className='flex items-center justify-center w-full h-full overflow-auto'>
-      <div className='p-4'>
-        하단에 저장해주세요.
-        <button className='' onClick={saveHostUrlInClipboard}>
+    <div className='flex items-center justify-center flex-col space-y-12 w-full h-full text-center overflow-auto px-5'>
+      <span className='font-extrabold text-2xl'>하단 링크를 저장해주세요.</span>
+      <span className='flex justify-between items-center border-4 rounded-lg'>
+        <button
+          className='break-all text-base p-3.5'
+          type='button'
+          onClick={saveHostUrlInClipboard}
+        >
           {hostUrl}
         </button>
+        <div className='p-3 w-24 h-auto'>
+          <img className='w-[30px]' src={clipboard} alt='클립보드' />
+        </div>
+      </span>
+      <h2 className='font-extrabold text-2xl underline decoration-8 decoration-red-300'>
         남에게 알려주면 안됩니다.
-        <button onClick={moveHostGarden}>정원으로 이동하기</button>
-      </div>
-      <ErrorModal isOpen={isErrorModal} title='Server Error' closeModal={closeModal}>
-        {errorMessage}
-      </ErrorModal>
+      </h2>
+      <button
+        type='button'
+        className='p-3 text-white bg-sky-500/100 rounded-xl'
+        onClick={moveHostGarden}
+      >
+        정원으로 이동하기
+      </button>
+      {isErrorModal && (
+        <ErrorModal isOpen={isErrorModal} title='Server Error' closeModal={closeModal}>
+          {errorMessage}
+        </ErrorModal>
+      )}
     </div>
   );
 };
