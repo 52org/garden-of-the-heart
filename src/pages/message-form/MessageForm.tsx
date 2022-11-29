@@ -1,4 +1,5 @@
 import Letter from 'components/letter';
+import dayjs from 'dayjs';
 import { useAppDispatch } from 'hooks';
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -16,7 +17,6 @@ const MessageForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { plantName } = useParams();
-
   if (!plantName) {
     return null;
   }
@@ -43,9 +43,10 @@ const MessageForm: React.FC = () => {
     dispatch(setCreateLetterData({ uuid, author, message, keyWords, plantName }));
     navigate('/createLetter');
   };
+  const currentDate = dayjs().format('YY.MM.DD');
 
   return (
-    <div>
+    <div className=' ml-2 mr-2'>
       <Letter receiver='준'>
         <LetterForm createMessage={createMessage} />
         <KeywordForm
@@ -54,9 +55,17 @@ const MessageForm: React.FC = () => {
           setKeyword={setKeyword}
         />
         <KeywordList keyWords={keyWords} deleteKeyword={deleteKeyword} />
-        <button type='submit' form='letter-form'>
-          제출
-        </button>
+        <p className='text-right mr-2'>{currentDate}</p>
+
+        <div className='w-full flex justify-center'>
+          <button
+            type='submit'
+            form='letter-form'
+            className='align-center bg-btnColor-100 rounded-lg border-borderColor-200 border-dotted pb-3 pt-3 pl-5 pr-5 text-textColor-200'
+          >
+            보내기
+          </button>
+        </div>
       </Letter>
     </div>
   );
