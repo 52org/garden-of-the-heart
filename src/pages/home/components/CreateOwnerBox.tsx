@@ -22,7 +22,7 @@ const CreateOwnerBox: React.FC = () => {
     const uuid = Token.getUUID();
 
     dispatch(setCreateOwnerData({ uuid, name }));
-    navigate('/createOwner');
+    navigate('/create-owner');
   }, [dispatch, navigate, name]);
 
   return (

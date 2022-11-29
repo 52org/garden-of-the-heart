@@ -1,5 +1,5 @@
 import * as PlantDetailImage from 'assets/image/plant-detail';
-import { SeedTable } from 'seed';
+import { SeedTable } from 'data/seedTable';
 
 export const getSeedInfo = (plantName: string) => SeedTable[plantName];
 

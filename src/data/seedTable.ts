@@ -1,58 +1,9 @@
 import * as PlantImage from 'assets/image/plants';
 
-export interface Seed {
-  imgUrl: string;
-  plantName: string;
-  growingPeriod: number;
+interface seedDescriptionObject {
+  skill: string;
   description: string;
 }
-
-type SeedList = Seed[];
-
-export const seedList: SeedList = [
-  {
-    imgUrl: PlantImage.sunflower,
-    plantName: '해바라기',
-    growingPeriod: 4,
-    description: '사랑해바라기!',
-  },
-  {
-    imgUrl: PlantImage.ginseng,
-    plantName: '산삼',
-    growingPeriod: 5,
-    description: '옥체보존 건강이 재.산삼!',
-  },
-  {
-    imgUrl: PlantImage.sweetPotato,
-    plantName: '호박고구마',
-    growingPeriod: 10,
-    description: '고구마호박이 아니라 호박고구마예요, 어머니.',
-  },
-  {
-    imgUrl: PlantImage.rose,
-    plantName: '장미',
-    growingPeriod: 5,
-    description: '가령 네가 오후 4시에 온다면 나는 3시부터 행복해지기 시작할 거야.',
-  },
-  {
-    imgUrl: PlantImage.banana,
-    plantName: '바나나',
-    growingPeriod: 1,
-    description: '바나나를 먹으면 나한테 반ㅎ아니.',
-  },
-  {
-    imgUrl: PlantImage.melon,
-    plantName: '메론',
-    growingPeriod: 1,
-    description: '올 때 메로나.',
-  },
-  {
-    imgUrl: PlantImage.apple,
-    plantName: '사과',
-    growingPeriod: 3,
-    description: '웁스. 쏘리~ 사과할게.',
-  },
-];
 
 interface SeedTableObject {
   [key: string]: {
@@ -63,11 +14,6 @@ interface SeedTableObject {
   };
 }
 
-interface seedDescriptionObject {
-  skill: string;
-  description: string;
-}
-
 type SeedTableType = SeedTableObject;
 
 export const SeedTable: SeedTableType = {
@@ -75,7 +21,10 @@ export const SeedTable: SeedTableType = {
     imgUrl: PlantImage.sunflower,
     plantName: '해바라기',
     growingPeriod: 4,
-    description: { skill: '나만 바라보게 된다!', description: '사랑해바라기!' },
+    description: {
+      skill: '나만 바라보게 된다!',
+      description: '사랑해바라기!'
+    },
   },
   산삼: {
     imgUrl: PlantImage.ginseng,
@@ -117,12 +66,27 @@ export const SeedTable: SeedTableType = {
     imgUrl: PlantImage.melon,
     plantName: '메론',
     growingPeriod: 1,
-    description: { skill: '메론 스킬은 뭘 해야할까요.', description: '올 때 메로나.' },
+    description: {
+      skill: '메론 스킬은 뭘 해야할까요.',
+      description: '올 때 메로나.'
+    },
   },
   사과: {
     imgUrl: PlantImage.apple,
     plantName: '사과',
     growingPeriod: 3,
-    description: { skill: '내 사과를 받아준다.', description: '웁스. 쏘리~ 사과할게.' },
+    description: {
+      skill: '내 사과를 받아준다.',
+      description: '웁스. 쏘리~ 사과할게.'
+    },
   },
+  토마토: {
+    imgUrl: PlantImage.tomato,
+    plantName: "토마토",
+    growingPeriod: 4,
+    description: {
+      skill: "토마토는 도마도",
+      description: "도마도마도마도"
+    }
+  }
 };
