@@ -1,3 +1,4 @@
+import * as NavImage from 'assets/image/gnb';
 import { useAppSelector } from 'hooks';
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
@@ -12,12 +13,12 @@ const GuestNav: React.FC = () => {
       <div className='container flex flex-wrap items-center justify-between h-20 mx-auto'>
         <div className='flex items-center justify-center w-20 h-20 ml-6 overflow-hidden bg-gray-200 rounded-full'>
           <Link to='/seedbag'>
-            <img className='h-14 sm:h-9' src='' alt='메세지 보내기' />
+            <img className='h-full sm:h-9' src={NavImage.letter_gnb} alt='메세지 보내기' />
           </Link>
         </div>
         <div className='flex items-center justify-center w-20 h-20 mr-6 overflow-hidden bg-gray-200 rounded-full'>
           <Link to={gardenLink}>
-            <img className='h-14 sm:h-9' src='image/signpost.png' alt='텃밭' />
+            <img className='h-full sm:h-9' src={NavImage.signpost_gnb} alt='텃밭' />
           </Link>
         </div>
       </div>

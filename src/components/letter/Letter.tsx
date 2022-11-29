@@ -8,12 +8,12 @@ interface LetterProps {
 
 const Letter: React.FC<LetterProps> = ({ receiver, children }) => {
   // 편지지 배경 가져오기
-  //const backgroundImage = getLetterBackgroundImage(plantName)
+  // const backgroundImage = getLetterBackgroundImage(plantName);
 
   return (
-    <div>
-      <div>
-        <p>{receiver}</p>
+    <div className='mt-16'>
+      <div className=''>
+        <p className='text-lg'>to. {receiver}</p>
         {children}
       </div>
     </div>
