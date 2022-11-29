@@ -35,8 +35,8 @@ const MessageForm: React.FC = () => {
     setKeyWords((prev) => [...prev, enteredKeyword]);
   };
 
-  const deleteKeyword = (targetKeyword: string) => {
-    const filteredKeywords = keywords.filter((keyword) => keyword !== targetKeyword);
+  const deleteKeyword = (targetIndex: number) => {
+    const filteredKeywords = keywords.filter((_, index) => index !== targetIndex);
     setKeyWords(filteredKeywords);
   };
 
