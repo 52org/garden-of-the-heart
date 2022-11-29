@@ -18,35 +18,33 @@
   <img src="https://user-images.githubusercontent.com/59170680/204515381-d3cde89b-a2e7-4636-a156-bf3f3d15f449.PNG" width="30%" />
 </div>
 
-<br/>
+<br/><br/>
 
 **🌱 나의 텃밭을 한눈에 확인할 수 있어요**
 <div align="center">
-  텃밭 사진
-  <img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
+  <img src="https://user-images.githubusercontent.com/59170680/204541662-c4b0123c-16c0-4127-9e3b-478179e15b9c.PNG" width="30%" />
 </div>
 
-<br/>
+<br/><br/>
 
 **🚰 물을 줘서 작물을 키울 수 있어요. 물을 줄 때마다 편지 일부가 담긴 잎새가 자라나요!**
 <div align="center">
-  작물 상세보기 사진
-  <img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
+  <img src="https://user-images.githubusercontent.com/59170680/204540687-fb16d0d5-45c2-4b1c-a5c7-5de3f791f9f0.PNG" width="30%" />
+  <img src="https://user-images.githubusercontent.com/59170680/204540694-706f12a3-9664-40db-a4d9-f970df4cd507.PNG" width="30%" />
 </div>
 
-<br/>
+<br/><br/>
 
 **🍎 물을 다 주면, 작물을 수확해 편지를 열어볼 수 있어요**
 <div align="center">
-  편지 내용 사진
-  <img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" /> 
+  <img src="https://user-images.githubusercontent.com/59170680/204541799-3d8ab6b8-e2a3-4b05-b125-c7d5c1b715f5.PNG" width="30%" /> 
 </div>
 
 <br/><br/>
 
 **💚 수확한 작물 목록과 담긴 편지를 확인할 수 있어요**
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/59170680/204517354-cf647e46-70cb-4968-b0c3-5a52dbf6ee3c.PNG" width="30%" />
+  <img src="https://user-images.githubusercontent.com/59170680/204542026-a34ce9b3-fc4b-4a36-a8c3-8634af75dc49.PNG" width="30%" />
 </div>
 
 <br/><br/>
