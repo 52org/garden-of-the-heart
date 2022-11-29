@@ -20,7 +20,7 @@ import Redirect from './componenets/Redirect';
 const AppRoutes: React.FC = () => (
   <Routes>
     <Route path='/' element={<CheckingUuid />}>
-      {/* <Route path='/' element={<Redirect to='/home' />} /> */}
+      <Route path='/' element={<Redirect to='/home' />} />
       <Route path='/' element={<HostDefaultTemplate />}>
         <Route path='plant/:letterId' element={<Plant />} />
         <Route path='messagebox' element={<MessageBox />} />
