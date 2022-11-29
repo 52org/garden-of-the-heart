@@ -7,7 +7,10 @@
 
 글을 담아 전하고 싶은 사람의 텃밭에 심어주세요, 받은 사람이 가꾸고 확인해볼거에요!
 
-[서비스 url](여기 주소!)
+<br/>
+
+
+[텃밭 만들러 가기!](https://52org.github.io/garden-of-the-heart)
 
 <br/>
 <br/>
@@ -16,6 +19,7 @@
 **👨‍🌾 쉽게 나의 텃밭을 만들 수 있어요. 친구들에게도 나의 텃밭을 공유할 수 있어요!**
 <div align="center">
   <img src="https://user-images.githubusercontent.com/59170680/204515381-d3cde89b-a2e7-4636-a156-bf3f3d15f449.PNG" width="30%" />
+  <img src="https://user-images.githubusercontent.com/59170680/204551172-7979e098-d44f-45b1-b245-4a4cfdcabdf5.PNG" width="30%" />
 </div>
 
 <br/><br/>
