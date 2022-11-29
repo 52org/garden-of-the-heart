@@ -14,7 +14,7 @@ interface CreateOwnerProps {
 const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
   const hostUrl = useMemo(() => `${HOST_URL}/host/garden/${owner.uuid}`, [owner]);
 
-  const { isSuccess, isLoading, mutate } = useCreateGarden();
+  const { isSuccess, mutate } = useCreateGarden();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -40,10 +40,6 @@ const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
   useEffect(() => {
     mutate();
   }, []);
-
-  useEffect(() => {
-    console.log(isLoading, isSuccess);
-  }, [isSuccess, isLoading]);
 
   return (
     <div className='w-full h-full'>
