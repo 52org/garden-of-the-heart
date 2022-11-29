@@ -5,16 +5,14 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { clearCreateOwnerData } from 'store/modules/base';
+import { HOST_URL } from 'utils/api/constants/url';
 
 interface CreateOwnerProps {
   owner: Owner;
 }
 
 const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
-  const hostUrl = useMemo(
-    () => `https://52org.github.io/garden-of-the-heart/host/garden/${owner.uuid}`,
-    [owner],
-  );
+  const hostUrl = useMemo(() => `${HOST_URL}/host/garden/${owner.uuid}`, [owner]);
 
   const { isSuccess, isLoading, mutate } = useCreateGarden();
 

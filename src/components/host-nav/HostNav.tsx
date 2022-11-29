@@ -1,18 +1,23 @@
-import React from 'react';
+import { useAppSelector } from 'hooks';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
 const HostNav: React.FC = () => {
+  const { uuid } = useAppSelector((state) => state.base);
+
+  const gardenLink = useMemo(() => `/host/garden/${uuid ?? ''}`, [uuid]);
+
   return (
-    <nav className='flex w-full items-center justify-around'>
-      <div className='container flex flex-wrap h-20 justify-between items-center mx-auto'>
-        <div className='flex w-20 h-20 rounded-full overflow-hidden bg-gray-200 items-center justify-center ml-6'>
-          <Link to='/'>
+    <nav className='flex items-center justify-around w-full'>
+      <div className='container flex flex-wrap items-center justify-between h-20 mx-auto'>
+        <div className='flex items-center justify-center w-20 h-20 ml-6 overflow-hidden bg-gray-200 rounded-full'>
+          <Link to='/messagebox'>
             <img className='h-14 sm:h-9' src='image/letterbox.png' alt='편지함' />
           </Link>
         </div>
-        <div className='flex w-20 h-20 rounded-full overflow-hidden bg-gray-200 items-center justify-center mr-6'>
-          <Link to='/'>
-            <img className='h-14 sm:h-9' src='image/signpost.png' alt='도크네 텃밭' />
+        <div className='flex items-center justify-center w-20 h-20 mr-6 overflow-hidden bg-gray-200 rounded-full'>
+          <Link to={gardenLink}>
+            <img className='h-14 sm:h-9' src='image/signpost.png' alt='텃밭' />
           </Link>
         </div>
       </div>
