@@ -48,7 +48,7 @@ const MessageForm: React.FC = () => {
   };
 
   return (
-    <div className='h-full ml-2 mr-2'>
+    <div className='h-full'>
       <Letter receiver={name as string}>
         <LetterForm createMessage={createMessage} />
         <KeywordForm

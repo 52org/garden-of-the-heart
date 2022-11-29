@@ -25,11 +25,7 @@ const KeywordForm: React.FC<KeywordFormProps> = ({ growingPeriod, isMaxKeywords,
   };
 
   return (
-    <form
-      onSubmit={onSubmitKeyword}
-      id='keyword-form'
-      className='relative flex flex-col mt-10 mb-5'
-    >
+    <form onSubmit={onSubmitKeyword} id='keyword-form' className='relative flex flex-col mt-5 mb-5'>
       <label htmlFor='keyword' className='text-xs mb-2'>
         <span className='text-lg mr-2'>잎새 🌿</span> * 자라는 동안 보여질 키워드입니다. (최대 10자)
       </label>
