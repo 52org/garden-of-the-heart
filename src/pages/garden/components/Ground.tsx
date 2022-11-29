@@ -11,7 +11,7 @@ interface GroundProps {
 
 const Ground: React.FC<GroundProps> = ({ plantList, isHost }) => {
   return (
-    <div className='w-[360px] h-[360px] flex-wrap bg-groundColor-100 flex justify-start overflow-hidden'>
+    <div className='w-[360px] h-[360px] flex-wrap bg-groundColor-100 flex justify-start overflow-hidden rounded-md'>
       <img className='w-full h-full' src={ground_base} alt='땅'></img>
       {plantList.map((plant) => (
         <Tile key={plant.letterId} plant={plant} isHost={isHost} />
