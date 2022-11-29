@@ -21,7 +21,7 @@ const Letter: React.FC<LetterProps> = ({ receiver, plantName, children }) => {
       }}
     >
       <div className='h-full pt-10 mx-5'>
-        <div className='bg-bgColor-100 py-10 px-4'>
+        <div className='px-4 py-10 bg-bgColor-100'>
           <p className='text-lg'>To. {receiver}</p>
           {children}
         </div>
