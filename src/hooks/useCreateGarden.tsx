@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import type { Owner } from 'entities/owner';
 import apiService from 'services/api';
-import { changeIsLoading, clearCreateOwnerData, setErrorMessage } from 'store/modules/base';
+import { changeIsLoading, setErrorMessage } from 'store/modules/base';
 
 import { useAppDispatch } from './useAppDispatch';
 import { useAppSelector } from './useAppSelector';
@@ -27,12 +27,12 @@ export default function useCreateGarden() {
       dispatch(changeIsLoading(true));
     },
     onSuccess: () => {
-      dispatch(clearCreateOwnerData());
+      dispatch(changeIsLoading(false));
     },
     onError: () => {
       dispatch(setErrorMessage('텃밭이 생성되지 않았습니다.'));
     },
   });
 
-  return mutation.mutate;
+  return mutation;
 }

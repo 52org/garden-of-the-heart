@@ -1,7 +1,7 @@
+// import type { Seed } from 'seed';
+import { seedList } from 'data/seedList';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import type { Seed } from 'seed';
-import { seedList } from 'seed';
 
 const SeedBag: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const SeedBag: React.FC = () => {
   };
 
   return (
-    <div className='text-center mt-5 mb-3 bg-bgColor-100'>
+    <div className='mt-5 mb-3 text-center bg-bgColor-100'>
       <span className='font-extrabold font-xxl'>씨앗 주머니</span>
       <div className='flex flex-wrap justify-center'>
         {seedList.map((seed, index) => (
@@ -19,7 +19,7 @@ const SeedBag: React.FC = () => {
             key={seed.plantName}
             onClick={(e) => onSeedboxClick(e, seed.plantName)}
           >
-            <img className='border m-auto' src={seed.imgUrl} alt={seed.plantName} />
+            <img className='m-auto border' src={seed.imgUrl} alt={seed.plantName} />
             <div className='flex justify-between m-auto'>
               <span className='ml-2'>{seed.plantName}</span>
               <span className='mr-2'>{seed.growingPeriod}</span>

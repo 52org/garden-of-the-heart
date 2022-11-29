@@ -1,5 +1,5 @@
 import * as PlantImage from 'assets/image/plants';
-import { SeedTable } from 'seed';
+import { SeedTable } from 'data/seedTable';
 
 interface ImageTable {
   [key: string]: string;
