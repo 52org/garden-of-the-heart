@@ -30,10 +30,10 @@ const KeywordList: React.FC<KeywordListProps> = ({ keyWords, deleteKeyword }) =>
             className='px-3 py-1 pr-1.5'
           >
             {keyword}
+            <em className='text-yellow-200 px-[4px] not-italic text-base -translate-y-10 ml-1.5'>
+              X
+            </em>
           </button>
-          <em className='text-yellow-200 px-[4px] not-italic text-base -translate-y-10 mr-1.5'>
-            X
-          </em>
         </li>
       ))}
     </ul>
