@@ -15,7 +15,7 @@ const LetterAuthor: React.FC<LetterAuthorProps> = ({ isWritable, author }) => {
           placeholder='씨앗의 이름을 정해주세요!'
         />
       ) : (
-        <p className='font-bold text-lg'>from. {author}</p>
+        <p className='font-bold text-lg'>From. {author}</p>
       )}
     </div>
   );
