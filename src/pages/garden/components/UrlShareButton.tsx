@@ -1,3 +1,4 @@
+import share from 'assets/image/garden/share.png';
 import React, { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -18,8 +19,8 @@ const UrlShareButton: React.FC = () => {
   }, [uuid]);
 
   return (
-    <button className='border border-gray-300 border-solid' onClick={saveHostUrlInClipboard}>
-      공유하기
+    <button className='w-16 h-16' onClick={saveHostUrlInClipboard}>
+      <img className='h-full' src={share} alt='공유하기' />
     </button>
   );
 };
