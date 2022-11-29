@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import apiService from 'services/api';
 import { changeIsLoading, setErrorMessage } from 'store/modules/base';
 
@@ -9,6 +9,8 @@ async function putGardenWater(letterId: string) {
 }
 
 export default function useWaterThePlant() {
+
+  const queryClient = useQueryClient();
   const dispatch = useAppDispatch();
 
   return useMutation({
@@ -17,6 +19,7 @@ export default function useWaterThePlant() {
       dispatch(changeIsLoading(true));
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["plantDetail"] });
       dispatch(changeIsLoading(false));
     },
     onError: () => {
