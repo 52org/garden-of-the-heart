@@ -70,9 +70,9 @@ const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
   }, [errorMessage]);
 
   return (
-    <div className='flex items-center justify-center flex-col space-y-12 w-full h-full text-center overflow-auto px-5'>
-      <span className='font-extrabold text-2xl'>하단 링크를 저장해주세요.</span>
-      <span className='flex justify-between items-center border-4 rounded-lg'>
+    <div className='flex flex-col items-center justify-center w-full h-full px-5 space-y-12 overflow-auto text-center'>
+      <span className='text-2xl font-extrabold'>하단 링크를 저장해주세요.</span>
+      <span className='flex items-center justify-between border-4 rounded-lg'>
         <button
           className='break-all text-base p-3.5'
           type='button'
@@ -80,11 +80,11 @@ const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
         >
           {hostUrl}
         </button>
-        <div className='p-3 w-24 h-auto'>
+        <div className='w-24 h-auto p-3'>
           <img className='w-[30px]' src={clipboard} alt='클립보드' />
         </div>
       </span>
-      <h2 className='font-extrabold text-2xl underline decoration-8 decoration-red-300'>
+      <h2 className='text-2xl font-extrabold underline decoration-8 decoration-red-300'>
         남에게 알려주면 안됩니다.
       </h2>
       <button
