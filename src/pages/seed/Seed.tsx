@@ -10,7 +10,7 @@ const Seed: React.FC = () => {
   const { imgUrl, plantName, growingPeriod, description } = seed;
 
   const routeToMessageForm = () => {
-    navigate('/messageform', { state: { seedName } });
+    navigate(`/messageform/${seedName}`, { state: { seedName } });
   };
   return (
     <div>
