@@ -1,15 +1,14 @@
-import { useMutation } from "@tanstack/react-query";
-import apiService from "services/api";
-import { changeIsLoading, setErrorMessage } from "store/modules/base";
+import { useMutation } from '@tanstack/react-query';
+import apiService from 'services/api';
+import { changeIsLoading, setErrorMessage } from 'store/modules/base';
 
-import { useAppDispatch } from "./useAppDispatch";
+import { useAppDispatch } from './useAppDispatch';
 
 async function putGardenWater(letterId: string) {
   return apiService.putGardenWater(letterId);
 }
 
 export default function useWaterThePlant() {
-
   const dispatch = useAppDispatch();
 
   return useMutation({
