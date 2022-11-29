@@ -27,6 +27,9 @@ module.exports = {
           200: '#e7dfd4',
         },
       },
+      fontFamily: {
+        gamja: ['Gamja Flower'],
+      },
     },
   },
   plugins: [],
