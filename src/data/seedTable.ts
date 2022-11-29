@@ -21,7 +21,10 @@ export const SeedTable: SeedTableType = {
     imgUrl: PlantImage.sunflower,
     plantName: '해바라기',
     growingPeriod: 4,
-    description: { skill: '나만 바라보게 된다!', description: '사랑해바라기!' },
+    description: {
+      skill: '나만 바라보게 된다!',
+      description: '사랑해바라기!'
+    },
   },
   산삼: {
     imgUrl: PlantImage.ginseng,
