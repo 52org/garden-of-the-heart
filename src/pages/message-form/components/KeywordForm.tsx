@@ -22,6 +22,7 @@ const KeywordForm: React.FC<KeywordFormProps> = ({ growingPeriod, isMaxKeywords,
     if (enteredKeyword.length > 10) return;
 
     setKeyword(enteredKeyword);
+    keywordInput.current.value = '';
   };
 
   return (
@@ -31,7 +32,7 @@ const KeywordForm: React.FC<KeywordFormProps> = ({ growingPeriod, isMaxKeywords,
       </label>
       <input
         type='text'
-        placeholder={`${growingPeriod - 1}개의 잎새를 만들 수 있어요`}
+        placeholder={`총 ${growingPeriod - 1}개의 잎새를 만들 수 있어요`}
         id='keyword'
         className='w-8/12 border-b-2 border-b-groundColor-200'
         style={{
