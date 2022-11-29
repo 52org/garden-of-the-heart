@@ -16,6 +16,7 @@ const CreateOwnerBox: React.FC = () => {
 
   const setOwnerData = useCallback(() => {
     if (!name || name === '') {
+      alert('텃밭 이름을 입력해주세요!');
       return null;
     }
 
@@ -42,16 +43,16 @@ const CreateOwnerBox: React.FC = () => {
             outline: 'none',
             backgroundColor: 'transparent',
             textAlign: 'center',
-            fontWeight: 'bold',
           }}
           type='text'
           onChange={changeName}
+          placeholder='텃밭 이름을 정해주세요!'
         />
         <button
           style={{
             outline: 'none',
             // backgroundColor: 'transparent',
-            padding: '11px  8px 11px 8px',
+            padding: '11px 35px',
             border: '3px dotted #c19a85',
             backgroundColor: '#b99269',
             borderRadius: '15px',
@@ -59,7 +60,7 @@ const CreateOwnerBox: React.FC = () => {
           }}
           onClick={setOwnerData}
         >
-          텃밭 만들러 가기
+          <p className='text-xl font-bold'>텃밭 만들러 가기</p>
         </button>
       </div>
     </div>

@@ -3,7 +3,7 @@ import banana from './banana_letter.png';
 import carrot from './carrot_letter.png';
 import ginseng from './ginseng_letter.png';
 import melon from './melon_letter.png';
-import potato from './potato_letter.png';
+import potato from './potato_letter.jpeg';
 import rose from './rose_letter.png';
 import sunflower from './sunflower_letter.png';
 import sweetPotato from './sweetpotato_letter.png';

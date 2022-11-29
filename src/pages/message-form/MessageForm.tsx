@@ -1,6 +1,6 @@
 import Letter from 'components/letter';
 import dayjs from 'dayjs';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { setCreateLetterData } from 'store/modules/base';
@@ -16,11 +16,14 @@ const MessageForm: React.FC = () => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { name } = useAppSelector((state) => state.base);
   const { plantName } = useParams();
+
   if (!plantName) {
     return null;
   }
 
+  const currentDate = dayjs().format('YY.MM.DD');
   const growingPeriod = getGrowingPeriod(plantName as string);
   const isMaxKeywords = keywords.length === growingPeriod - 1;
 
@@ -43,11 +46,10 @@ const MessageForm: React.FC = () => {
     dispatch(setCreateLetterData({ uuid, author, message, keywords, plantName }));
     navigate('/create-letter');
   };
-  const currentDate = dayjs().format('YY.MM.DD');
 
   return (
-    <div className='ml-2 mr-2 '>
-      <Letter receiver='준'>
+    <div className='h-full'>
+      <Letter receiver={name as string} plantName={plantName}>
         <LetterForm createMessage={createMessage} />
         <KeywordForm
           growingPeriod={growingPeriod}

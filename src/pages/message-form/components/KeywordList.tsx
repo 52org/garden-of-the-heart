@@ -16,9 +16,12 @@ const KeywordList: React.FC<KeywordListProps> = ({ keyWords, deleteKeyword }) =>
   };
 
   return (
-    <ul className='flex flex-row [&>li+li]:ml-3'>
+    <ul className='flex flex-row h-9 [&>li+li]:ml-3'>
       {keyWords?.map((keyword, index) => (
-        <li key={`${keyword}-${index}`} className='rounded-lg border-2 bg-btnColor-100'>
+        <li
+          key={`${keyword}-${index}`}
+          className='rounded-lg border-2 bg-btnColor-200 text-textColor-200'
+        >
           <button
             type='button'
             onClick={onKeywordClick}
