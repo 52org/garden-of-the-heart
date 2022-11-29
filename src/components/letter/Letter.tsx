@@ -11,9 +11,9 @@ const Letter: React.FC<LetterProps> = ({ receiver, children }) => {
   // const backgroundImage = getLetterBackgroundImage(plantName);
 
   return (
-    <div className='mt-16'>
-      <div className=''>
-        <p className='text-lg'>to. {receiver}</p>
+    <div className=''>
+      <div className='pt-10 mx-5'>
+        <p className='text-lg'>To. {receiver}</p>
         {children}
       </div>
     </div>
