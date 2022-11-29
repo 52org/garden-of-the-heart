@@ -21,7 +21,7 @@ const Message: React.FC = () => {
       {isLoading ? (
         <div className='flex justify-center items-center text-xl'>로딩중...</div>
       ) : (
-        <div className='border-2 rounded w-full h-full relative p-8'>
+        <div className='h-full'>
           <Letter receiver={name as string} plantName={data?.plantName}>
             <LetterContent
               date={formatDate(data?.createDate)}

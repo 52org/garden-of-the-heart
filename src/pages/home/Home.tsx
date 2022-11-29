@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className='w-full h-full text-center'>
+    <div className='w-full h-full text-center '>
       <div className='w-fit h-fit m-auto'>
         <h1 className='pt-7 text-3xl font-extrabold mb-7'>🌱 마음을 전하는 텃밭 🌱</h1>
         <p className='w-11/12 m-auto text-lg'>
