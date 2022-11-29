@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         <p className='w-11/12 m-auto text-lg'>
           전하고 싶었던 말을 <br /> 시간이 지나면 잊을 때가 있지 않나요? <br /> <br />
           전하고 싶지만 <br /> 나중에 확인해줬으면 하는 말들이 있어요.. <br /> <br />
-          씨앗에 글을 담아 텃밭에 심어주세요. <br /> 받은 사람이 가꾸고 확인해볼거에요.
+          씨앗에 글을 담아 텃밭에 심어주세요. <br /> 받은 사람이 가꾸고 확인해볼 거예요.
         </p>
 
         <div className='w-full h-[300px] bg-transparent relative'>

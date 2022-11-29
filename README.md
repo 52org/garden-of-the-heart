@@ -14,53 +14,58 @@
 
 ## 서비스 소개
 **👨‍🌾 쉽게 나의 텃밭을 만들 수 있어요. 친구들에게도 나의 텃밭을 공유할 수 있어요!**
-<div>
-랜딩 페이지 사진
-<img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/59170680/204515381-d3cde89b-a2e7-4636-a156-bf3f3d15f449.PNG" width="30%" />
 </div>
 
 <br/>
 
 **🌱 나의 텃밭을 한눈에 확인할 수 있어요**
-<div>
-랜딩 페이지사진
-<img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
+<div align="center">
+  텃밭 사진
+  <img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
 </div>
 
 <br/>
 
 **🚰 물을 줘서 작물을 키울 수 있어요. 물을 줄 때마다 편지 일부가 담긴 잎새가 자라나요!**
-<div>
-작물 상세보기 사진
-<img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
+<div align="center">
+  작물 상세보기 사진
+  <img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
 </div>
 
 <br/>
 
 **🍎 물을 다 주면, 작물을 수확해 편지를 열어볼 수 있어요**
-<div>
-편지 내용 사진
-<img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" /> 
+<div align="center">
+  편지 내용 사진
+  <img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" /> 
 </div>
 
-<br/>
+<br/><br/>
 
 **💚 수확한 작물 목록과 담긴 편지를 확인할 수 있어요**
-<div>
-받은 편지 목록 사진
-<img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/59170680/204517354-cf647e46-70cb-4968-b0c3-5a52dbf6ee3c.PNG" width="30%" />
 </div>
 
-<br/>
+<br/><br/>
 
 **🥜 친구의 텃밭에 편지를 담은 씨앗을 심어줄 수 있어요, 원하는 씨앗을 골라보세요!**
-<div>
-씨앗 주머니 사진
-<img src="https://user-images.githubusercontent.com/59170680/204469702-3f117d5b-7732-4ccb-85ca-01bf94ff07ec.png" width="30%" />
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/59170680/204515728-2b103c15-e444-48a2-bd55-9f5dee288dee.PNG" width="30%" />
+  <img src="https://user-images.githubusercontent.com/59170680/204515761-10ed8729-897a-4d81-8e1b-33c17f61abd1.PNG" width="30%" />
 </div>
 
-<br/>
-<br/>
+<br/><br/>
+
+**💌 원하는 씨앗에 편지를 넣어 심을 수 있어요. 편지의 힌트가 될 잎새도 정해주세요!**
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/59170680/204516910-b22a6f87-c174-424f-b2c5-a5f2f270dcdb.PNG" width="30%" />
+</div>
+
+<br/><br/>
+
 
 ## 🛠️ Stacks
 **Backend**
