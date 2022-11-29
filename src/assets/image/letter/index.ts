@@ -1,4 +1,4 @@
-import apple from './apple._letter.png';
+import apple from './apple_letter.png';
 import banana from './banana_letter.png';
 import carrot from './carrot_letter.png';
 import ginseng from './ginseng_letter.png';
