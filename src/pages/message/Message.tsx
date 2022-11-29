@@ -20,7 +20,7 @@ const Message: React.FC = () => {
         <div className='flex justify-center items-center text-xl'>로딩중...</div>
       ) : (
         <div className='border-2 rounded w-full h-full relative p-8'>
-          <Letter receiver=''>
+          <Letter receiver='' plantName={data?.plantName}>
             <LetterContent
               date={formatDate(data?.createDate)}
               author={data?.author}
