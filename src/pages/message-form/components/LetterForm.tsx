@@ -1,4 +1,5 @@
 import type { FormEventHandler } from 'react';
+import { useState } from 'react';
 import { useRef } from 'react';
 import React from 'react';
 
@@ -7,16 +8,32 @@ interface LetterFormProps {
 }
 
 const LetterForm: React.FC<LetterFormProps> = ({ createMessage }) => {
+  const [isAuthorEmpty, setIsAuthorEmpty] = useState(false);
+  const [isMessageEmpty, setIsMessageEmpty] = useState(false);
+
   const authorInput = useRef<HTMLInputElement>(null);
   const letterTextArea = useRef<HTMLTextAreaElement>(null);
 
+  const resetIsEmpty = () => {
+    setIsAuthorEmpty(false);
+    setIsMessageEmpty(false);
+  };
+
   const onLetterSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+    resetIsEmpty();
 
     const author = authorInput.current?.value;
     const message = letterTextArea.current?.value;
 
-    if (!author || !message) return;
+    if (!author) {
+      setIsAuthorEmpty(true);
+      return;
+    }
+    if (!message) {
+      setIsMessageEmpty(true);
+      return;
+    }
 
     createMessage(author, message);
   };
@@ -27,7 +44,7 @@ const LetterForm: React.FC<LetterFormProps> = ({ createMessage }) => {
         <div className='mt-5 mb-5 flex-auto'>
           <label htmlFor='author'>From.</label>
           <input
-            className='w-8/12 border-b-2 border-b-groundColor-200 mb-7 ml-3'
+            className='w-8/12 border-b-2 border-b-groundColor-200 mb-2 ml-3'
             style={{
               outline: 'none',
               backgroundColor: 'transparent',
@@ -38,6 +55,7 @@ const LetterForm: React.FC<LetterFormProps> = ({ createMessage }) => {
             id='author'
             ref={authorInput}
           />
+          {isAuthorEmpty && <p className='text-red-400'>* 이름을 입력해주세요</p>}
         </div>
         <textarea
           className='leading-loose w-full p-4 border-borderColor-100 rounded border-solid border-2 focus:outline-borderColor-200 resize-none  bg-bgColor-100 outline-none flex-auto underline decoration-2 underline-offset-4 decoration-btnColor-200'
@@ -47,6 +65,7 @@ const LetterForm: React.FC<LetterFormProps> = ({ createMessage }) => {
           placeholder='편지 내용을 입력해주세요'
           ref={letterTextArea}
         ></textarea>
+        {isMessageEmpty && <p className='text-red-400'>* 편지 내용을 입력해주세요</p>}
       </form>
     </div>
   );
