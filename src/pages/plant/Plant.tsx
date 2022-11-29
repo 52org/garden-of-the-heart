@@ -1,32 +1,39 @@
 import Waiting from 'components/waiting';
 import useGetPlantDetail from 'hooks/useGetPlantDetail';
+import useWaterThePlant from 'hooks/useWaterThePlant';
 import type { MouseEventHandler } from 'react';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getGrowingPeriod, getPlantDetailImage } from 'utils';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getGrowingPeriod } from 'utils';
+import { getPlantDetailImage } from 'utils/getPlatnDetailImage';
 
 const Plant: React.FC = () => {
-  // const { letterId } = useParams();
+  const { letterId } = useParams();
   const navigate = useNavigate();
 
   // letterId로 바꾸면 됩니다
-  const { isLoading, data } = useGetPlantDetail(String(22));
+  const { isLoading, data } = useGetPlantDetail(letterId ?? '');
 
-  if (!data || !Array.isArray(data.keywords)) {
+  const waterThePlant = useWaterThePlant();
+
+  if (!letterId || !data || !Array.isArray(data.keywords)) {
     return null;
   }
 
-  const plantImage = getPlantDetailImage(data?.wateringCount, data?.plantName);
+  const plantImage = getPlantDetailImage(data);
+
   const growingPeriod = getGrowingPeriod(data?.plantName);
 
   // 물주기 로직 작성하면 됩니다
   const onWateringClick: MouseEventHandler<HTMLButtonElement> = () => {
-    console.log(data);
+    if (data.wateringCount < growingPeriod) {
+      waterThePlant(letterId);
+    }
   };
 
   // letterId로 바꾸면 됩니다
   const onViewLetterClick: MouseEventHandler<HTMLButtonElement> = () => {
-    navigate(`message/2`);
+    navigate(`/message/${letterId}`);
   };
 
   const isGrowing = data?.wateringCount < growingPeriod;
@@ -53,12 +60,12 @@ const Plant: React.FC = () => {
   return (
     <Waiting loading={isLoading}>
       <div className='p-5'>
-        <div className='border-trueGray-200 border-solid border-2'>
-          <img src={plantImage} alt='plant-detail' className='w-4/6 object-cover flex mx-auto' />
+        <div className='border-2 border-solid border-trueGray-200'>
+          <img src={plantImage} alt='plant-detail' className='flex object-cover w-4/6 mx-auto' />
         </div>
         <button
           type='button'
-          className='border-trueGray-200 border-solid border-2'
+          className='border-2 border-solid border-trueGray-200'
           onClick={onButtonClick}
         >
           {buttonText}
