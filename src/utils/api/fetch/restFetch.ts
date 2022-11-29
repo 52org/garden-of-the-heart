@@ -1,5 +1,5 @@
-import { Rest } from "../api";
-import { createAllRestFetch } from "../createFetch";
+import { Rest } from '../api';
+import { createAllRestFetch } from '../createFetch';
 
 export const apiUrl = "https://bluewow.link";
 
