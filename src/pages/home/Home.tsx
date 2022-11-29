@@ -13,8 +13,8 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className='flex items-center justify-center w-full h-full text-center'>
-      <div className='w-fit h-fit '>
+    <div className='w-full h-full text-center overflow-y-scroll'>
+      <div className='w-fit h-fit m-auto'>
         <h1 className='mt-5 text-3xl font-extrabold mb-7'>🌱 마음을 전하는 텃밭 🌱</h1>
         <p className='w-11/12 m-auto text-lg'>
           전하고 싶었던 말을 <br /> 시간이 지나면 잊을 때가 있지 않나요? <br /> <br />

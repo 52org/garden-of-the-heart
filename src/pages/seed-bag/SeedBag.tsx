@@ -1,4 +1,3 @@
-// import type { Seed } from 'seed';
 import { seedList } from 'data/seedList';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -10,12 +9,12 @@ const SeedBag: React.FC = () => {
   };
 
   return (
-    <div className='mt-5 mb-3 text-center bg-bgColor-100'>
+    <div className='pt-5 text-center bg-bgColor-100 h-full'>
       <span className='font-extrabold font-xxl'>씨앗 주머니</span>
-      <div className='flex flex-wrap justify-center'>
-        {seedList.map((seed, index) => (
+      <div className='flex flex-wrap justify-center mt-2 h-4/5 overflow-y-scroll'>
+        {seedList.map((seed) => (
           <div
-            className='inline-block w-4/12 m-5 border'
+            className='inline-block w-4/12 m-4 border'
             key={seed.plantName}
             onClick={(e) => onSeedboxClick(e, seed.plantName)}
           >
