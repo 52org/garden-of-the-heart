@@ -49,7 +49,7 @@ const MessageForm: React.FC = () => {
 
   return (
     <div className='h-full'>
-      <Letter receiver={name as string}>
+      <Letter receiver={name as string} plantName={plantName}>
         <LetterForm createMessage={createMessage} />
         <KeywordForm
           growingPeriod={growingPeriod}
