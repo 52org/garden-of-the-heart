@@ -13,9 +13,9 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className='w-full h-full text-center overflow-y-scroll'>
+    <div className='w-full h-full text-center'>
       <div className='w-fit h-fit m-auto'>
-        <h1 className='mt-5 text-3xl font-extrabold mb-7'>🌱 마음을 전하는 텃밭 🌱</h1>
+        <h1 className='pt-7 text-3xl font-extrabold mb-7'>🌱 마음을 전하는 텃밭 🌱</h1>
         <p className='w-11/12 m-auto text-lg'>
           전하고 싶었던 말을 <br /> 시간이 지나면 잊을 때가 있지 않나요? <br /> <br />
           전하고 싶지만 <br /> 나중에 확인해줬으면 하는 말들이 있어요.. <br /> <br />

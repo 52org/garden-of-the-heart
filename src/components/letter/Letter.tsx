@@ -20,8 +20,8 @@ const Letter: React.FC<LetterProps> = ({ receiver, plantName, children }) => {
         backgroundPosition: 'center',
       }}
     >
-      <div className='h-full pt-10 mx-5'>
-        <div className='px-4 py-10 bg-bgColor-100'>
+      <div className='h-full pt-10 mx-5 '>
+        <div className='px-6 py-10 rounded-lg bg-bgColor-100'>
           <p className='text-lg'>To. {receiver}</p>
           {children}
         </div>
