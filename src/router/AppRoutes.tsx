@@ -3,7 +3,7 @@ import Home from 'pages/home';
 import Message from 'pages/message';
 import MessageBox from 'pages/message-box';
 import MessageForm from 'pages/message-form';
-import Plant from 'pages/plant/Plant';
+import Plant from 'pages/plant';
 import Seed from 'pages/seed';
 import SeedBag from 'pages/seed-bag';
 import React from 'react';

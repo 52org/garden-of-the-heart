@@ -1,44 +1,41 @@
-import type { Plant, PlantDetail } from "entities/plant";
+import type { Plant, PlantDetail } from 'entities/plant';
 
 export const plantList: Plant[] = [
   {
-    letterId: "1",
-    plantName: "토마토",
+    letterId: '1',
+    plantName: '토마토',
     wateringCount: 0,
-    isWatered: false
+    isWatered: false,
   },
   {
-    letterId: "1",
-    plantName: "토마토",
+    letterId: '1',
+    plantName: '토마토',
     wateringCount: 0,
-    isWatered: false
+    isWatered: false,
   },
   {
-    letterId: "1",
-    plantName: "토마토",
+    letterId: '1',
+    plantName: '토마토',
     wateringCount: 0,
 
-    isWatered: false
+    isWatered: false,
   },
   {
-    letterId: "1",
-    plantName: "토마토",
+    letterId: '1',
+    plantName: '토마토',
     wateringCount: 0,
-    isWatered: false
+    isWatered: false,
   },
   {
-    letterId: "1",
-    plantName: "토마토",
+    letterId: '1',
+    plantName: '토마토',
     wateringCount: 0,
-    isWatered: false
-  }
-]
+    isWatered: false,
+  },
+];
 
 export const plantDetail: PlantDetail = {
-  plantName: "토마토",
-  discription: "dsadasdas",
+  plantName: '토마토',
   wateringCount: 0,
-  keyWords: [
-    "바보"
-  ]
-}
+  keywords: ['바보'],
+};
