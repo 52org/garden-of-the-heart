@@ -9,7 +9,7 @@ const HostWrapper: React.FC<HostWrapperProps> = ({ children }) => {
   return (
     <div className='relative w-full h-full'>
       {children}
-      <div className='absolute left-0 z-50 w-full h-auto bottom-3'>
+      <div className='absolute left-0 z-50 w-full h-auto bottom-4'>
         <HostNav />
       </div>
     </div>

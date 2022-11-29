@@ -2,6 +2,7 @@ import type { AxiosInstance, AxiosRequestConfig, AxiosRequestHeaders, AxiosRespo
 import axios, { type AxiosError } from "axios";
 import { cacheAdapterEnhancer } from 'axios-extensions';
 import { stringify } from "qs";
+import { toast } from "react-toastify";
 
 import { ApiError } from "./apiError";
 import { setHeaders } from "./setHeaders";
@@ -32,7 +33,7 @@ export class Api {
     this._ajax.interceptors.response.use((response: AxiosResponse) => {
       return response.data;
     }, (error: AxiosError) => {
-
+      toast.error("server error");
       const apiError = new ApiError();
 
       if (error.response) {

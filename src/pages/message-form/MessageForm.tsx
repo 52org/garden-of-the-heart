@@ -5,18 +5,17 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { setCreateLetterData } from 'store/modules/base';
 import { getGrowingPeriod } from 'utils';
-import { Token } from 'utils/token';
 
 import KeywordForm from './components/KeywordForm';
 import KeywordList from './components/KeywordList';
 import LetterForm from './components/LetterForm';
 
 const MessageForm: React.FC = () => {
-  const [keywords, setKeyWords] = useState<string[]>([]);
+  const [keyWords, setKeyWords] = useState<string[]>([]);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { name } = useAppSelector((state) => state.base);
+  const { uuid, name } = useAppSelector((state) => state.base);
   const { plantName } = useParams();
 
   if (!plantName) {
@@ -25,7 +24,7 @@ const MessageForm: React.FC = () => {
 
   const currentDate = dayjs().format('YY.MM.DD');
   const growingPeriod = getGrowingPeriod(plantName as string);
-  const isMaxKeywords = keywords.length === growingPeriod - 1;
+  const isMaxKeywords = keyWords.length === growingPeriod - 1;
 
   if (!growingPeriod) {
     return null;
@@ -36,15 +35,15 @@ const MessageForm: React.FC = () => {
   };
 
   const deleteKeyword = (targetIndex: number) => {
-    const filteredKeywords = keywords.filter((_, index) => index !== targetIndex);
+    const filteredKeywords = keyWords.filter((_, index) => index !== targetIndex);
     setKeyWords(filteredKeywords);
   };
 
   const createMessage = (author: string, message: string) => {
-    const uuid = Token.getUUID();
-
-    dispatch(setCreateLetterData({ uuid, author, message, keywords, plantName }));
-    navigate('/create-letter');
+    if (uuid) {
+      dispatch(setCreateLetterData({ uuid, author, message, keyWords, plantName }));
+      navigate('/create-letter');
+    }
   };
 
   return (
@@ -56,7 +55,7 @@ const MessageForm: React.FC = () => {
           isMaxKeywords={isMaxKeywords}
           setKeyword={setKeyword}
         />
-        <KeywordList keyWords={keywords} deleteKeyword={deleteKeyword} />
+        <KeywordList keyWords={keyWords} deleteKeyword={deleteKeyword} />
         <p className='mr-2 text-right'>{currentDate}</p>
 
         <div className='flex justify-center w-full'>

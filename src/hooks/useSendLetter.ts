@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import type { LetterData } from "entities/request";
 import apiService from "services/api";
-import { changeIsLoading, clearCreateLetterData, setErrorMessage } from "store/modules/base";
+import { changeIsLoading, setErrorMessage } from "store/modules/base";
 
 import { useAppDispatch } from "./useAppDispatch";
 import { useAppSelector } from "./useAppSelector";
@@ -27,7 +27,7 @@ export default function useSendLetter() {
       dispatch(changeIsLoading(true));
     },
     onSuccess: () => {
-      dispatch(clearCreateLetterData());
+      dispatch(changeIsLoading(false));
     },
     onError: () => {
       dispatch(setErrorMessage('편지가 제대로 전달되지 않았습니다.'));

@@ -18,7 +18,7 @@ const HostNav: React.FC = () => {
         </div>
         <div className='flex items-center justify-center w-20 h-20 p-3 mr-6 overflow-hidden bg-gray-200 rounded-full shadow-lg'>
           <Link to={gardenLink}>
-            <img className='h-full' src={NavImage.location_gnb} alt='도크네 텃밭' />
+            <img className='h-full' src={NavImage.location_gnb} alt='텃밭' />
           </Link>
         </div>
       </div>

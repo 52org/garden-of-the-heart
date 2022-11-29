@@ -13,23 +13,12 @@ interface BaseState {
   errorMessage: string | null;
 }
 
-const letterData: LetterData = {
-  uuid: "test",
-  author: "test",
-  plantName: "토마토",
-  message: "sads",
-  keywords: []
-}
-
 const initialState: BaseState = {
-  uuid: "1111",
-  name: "1111",
+  uuid: null,
+  name: null,
   isLoading: false,
-  createOwnerData: {
-    uuid: "test",
-    name: "test"
-  },
-  createLetterData: letterData,
+  createOwnerData: null,
+  createLetterData: null,
   errorMessage: null,
 };
 

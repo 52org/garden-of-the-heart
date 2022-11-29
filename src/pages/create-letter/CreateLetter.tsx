@@ -46,7 +46,7 @@ const CreateLetter: React.FC<CreateLetterProps> = ({ letter, uuid }) => {
       toast.success('전송 성공😍');
       navigate(`/guest/garden/${uuid}`);
     }
-  }, [check, isLoading, navigate, uuid]);
+  }, [check, isLoading, navigate, uuid, errorMessage, dispatch]);
 
   useEffect(() => {
     if (errorMessage) {
