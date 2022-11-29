@@ -4,5 +4,5 @@ export interface LetterData {
   author: string;
   uuid: string;
   message: string;
-  keyWords: string[];
+  keywords: string[];
 }

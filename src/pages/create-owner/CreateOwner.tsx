@@ -1,7 +1,8 @@
+import ErrorModal from 'components/error-modal';
 import type { Owner } from 'entities/owner';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import useCreateGarden from 'hooks/useCreateGarden';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { clearCreateOwnerData } from 'store/modules/base';
@@ -12,6 +13,10 @@ interface CreateOwnerProps {
 }
 
 const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
+  const [isErrorModal, setErrorModal] = useState<boolean>(false);
+
+  const { errorMessage } = useAppSelector((state) => state.base);
+
   const hostUrl = useMemo(() => `${HOST_URL}/host/garden/${owner.uuid}`, [owner]);
 
   const { isSuccess, mutate } = useCreateGarden();
@@ -37,18 +42,35 @@ const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
     }
   }, [isSuccess, owner, navigate, dispatch]);
 
+  const closeModal = useCallback(() => {
+    setErrorModal(false);
+    dispatch(clearCreateOwnerData());
+    navigate(`/home`);
+  }, [dispatch]);
+
   useEffect(() => {
     mutate();
   }, []);
 
+  useEffect(() => {
+    if (errorMessage) {
+      setErrorModal(true);
+    }
+  }, [errorMessage]);
+
   return (
-    <div className='w-full h-full'>
-      하단에 저장해주세요.
-      <button className='' onClick={saveHostUrlInClipboard}>
-        {hostUrl}
-      </button>
-      남에게 알려주면 안됩니다.
-      <button onClick={moveHostGarden}>정원으로 이동하기</button>
+    <div className='flex items-center justify-center w-full h-full overflow-auto'>
+      <div className='p-4'>
+        하단에 저장해주세요.
+        <button className='' onClick={saveHostUrlInClipboard}>
+          {hostUrl}
+        </button>
+        남에게 알려주면 안됩니다.
+        <button onClick={moveHostGarden}>정원으로 이동하기</button>
+      </div>
+      <ErrorModal isOpen={isErrorModal} title='Server Error' closeModal={closeModal}>
+        {errorMessage}
+      </ErrorModal>
     </div>
   );
 };

@@ -12,7 +12,7 @@ import KeywordList from './components/KeywordList';
 import LetterForm from './components/LetterForm';
 
 const MessageForm: React.FC = () => {
-  const [keyWords, setKeyWords] = useState<string[]>([]);
+  const [keywords, setKeyWords] = useState<string[]>([]);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const MessageForm: React.FC = () => {
   }
 
   const growingPeriod = getGrowingPeriod(plantName as string);
-  const isMaxKeywords = keyWords.length === growingPeriod - 1;
+  const isMaxKeywords = keywords.length === growingPeriod - 1;
 
   if (!growingPeriod) {
     return null;
@@ -33,20 +33,20 @@ const MessageForm: React.FC = () => {
   };
 
   const deleteKeyword = (targetKeyword: string) => {
-    const filteredKeywords = keyWords.filter((keyword) => keyword !== targetKeyword);
+    const filteredKeywords = keywords.filter((keyword) => keyword !== targetKeyword);
     setKeyWords(filteredKeywords);
   };
 
   const createMessage = (author: string, message: string) => {
     const uuid = Token.getUUID();
 
-    dispatch(setCreateLetterData({ uuid, author, message, keyWords, plantName }));
+    dispatch(setCreateLetterData({ uuid, author, message, keywords, plantName }));
     navigate('/createletter');
   };
   const currentDate = dayjs().format('YY.MM.DD');
 
   return (
-    <div className=' ml-2 mr-2'>
+    <div className='ml-2 mr-2 '>
       <Letter receiver='준'>
         <LetterForm createMessage={createMessage} />
         <KeywordForm
@@ -54,14 +54,14 @@ const MessageForm: React.FC = () => {
           isMaxKeywords={isMaxKeywords}
           setKeyword={setKeyword}
         />
-        <KeywordList keyWords={keyWords} deleteKeyword={deleteKeyword} />
-        <p className='text-right mr-2'>{currentDate}</p>
+        <KeywordList keyWords={keywords} deleteKeyword={deleteKeyword} />
+        <p className='mr-2 text-right'>{currentDate}</p>
 
-        <div className='w-full flex justify-center'>
+        <div className='flex justify-center w-full'>
           <button
             type='submit'
             form='letter-form'
-            className='align-center bg-btnColor-100 rounded-lg border-borderColor-200 border-dotted pb-3 pt-3 pl-5 pr-5 text-textColor-200'
+            className='pt-3 pb-3 pl-5 pr-5 border-dotted rounded-lg align-center bg-btnColor-100 border-borderColor-200 text-textColor-200'
           >
             보내기
           </button>

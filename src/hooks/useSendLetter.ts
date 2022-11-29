@@ -34,5 +34,5 @@ export default function useSendLetter() {
     },
   });
 
-  return mutation.mutate;
+  return mutation;
 }
