@@ -1,4 +1,3 @@
-
 export interface Plant {
   letterId: string;
   plantName: string;
@@ -8,8 +7,6 @@ export interface Plant {
 
 export interface PlantDetail {
   plantName: string;
-  discription: string;
   wateringCount: number;
-  keyWords: string[];
+  keywords: string[];
 }
-

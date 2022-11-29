@@ -1,4 +1,3 @@
-import Home from 'pages/home';
 import Message from 'pages/message';
 import MessageBox from 'pages/message-box';
 import MessageForm from 'pages/message-form';
@@ -24,7 +23,8 @@ const AppRoutes: React.FC = () => (
       <Route path='message/:letterId' element={<Message />} />
       <Route path='/*' element={<Redirect to='/home' />} />
     </Route>
-    <Route path='home' element={<Home />} />
+    {/* <Route path='home' element={<Home />} /> */}
+    <Route path='home' element={<Plant />} />
     <Route path='host/garden/:uuid' element={<GardenHostPage />} />
     <Route path='guest/garden/:uuid' element={<GardenGuestPage />} />
     <Route path='*' element={<Redirect to='/home' />} />
