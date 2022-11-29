@@ -17,7 +17,11 @@ const UrlShareButton: React.FC = () => {
       });
   }, [uuid]);
 
-  return <button onClick={saveHostUrlInClipboard}>공유하기</button>;
+  return (
+    <button className='border border-gray-300 border-solid' onClick={saveHostUrlInClipboard}>
+      공유하기
+    </button>
+  );
 };
 
 export default UrlShareButton;

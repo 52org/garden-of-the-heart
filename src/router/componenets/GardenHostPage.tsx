@@ -1,5 +1,5 @@
 import type { Plant } from 'entities/plant';
-import GardenHost from 'pages/garden-host';
+import Garden from 'pages/garden';
 import React from 'react';
 
 import GardenWrapper from './GardenWrapper';
@@ -9,7 +9,7 @@ const GardenHostPage: React.FC = () => (
   <GardenWrapper>
     {(plantList: Plant[]) => (
       <HostWrapper>
-        <GardenHost plantList={plantList} />
+        <Garden isHost plantList={plantList} />
       </HostWrapper>
     )}
   </GardenWrapper>

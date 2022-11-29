@@ -80,4 +80,13 @@ export const SeedTable: SeedTableType = {
       description: '웁스. 쏘리~ 사과할게.'
     },
   },
+  토마토: {
+    imgUrl: PlantImage.tomato,
+    plantName: "토마토",
+    growingPeriod: 4,
+    description: {
+      skill: "토마토는 도마도",
+      description: "도마도마도마도"
+    }
+  }
 };

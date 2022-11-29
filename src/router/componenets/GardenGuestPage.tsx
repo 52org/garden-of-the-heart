@@ -1,5 +1,5 @@
 import type { Plant } from 'entities/plant';
-import GardenGuest from 'pages/garden-guest';
+import Garden from 'pages/garden';
 import React from 'react';
 
 import UuidInitWrappper from './GardenWrapper';
@@ -9,7 +9,7 @@ const GardenGuestPage: React.FC = () => (
   <UuidInitWrappper>
     {(plantList: Plant[]) => (
       <GuestWrapper>
-        <GardenGuest plantList={plantList} />
+        <Garden isHost={false} plantList={plantList} />
       </GuestWrapper>
     )}
   </UuidInitWrappper>
