@@ -1,7 +1,9 @@
+import ErrorModal from 'components/error-modal';
 import type { Owner } from 'entities/owner';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import useCreateGarden from 'hooks/useCreateGarden';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import useTimer from 'hooks/useSecondsTimer';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { clearCreateOwnerData } from 'store/modules/base';
@@ -12,9 +14,20 @@ interface CreateOwnerProps {
 }
 
 const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
+  const [isErrorModal, setErrorModal] = useState<boolean>(false);
+  const [check, setCheck] = useState<boolean>(false);
+
+  const endCallback = useCallback(() => {
+    setCheck(true);
+  }, []);
+
+  useTimer(4, endCallback);
+
+  const { errorMessage, isLoading } = useAppSelector((state) => state.base);
+
   const hostUrl = useMemo(() => `${HOST_URL}/host/garden/${owner.uuid}`, [owner]);
 
-  const { isSuccess, mutate } = useCreateGarden();
+  const { mutate } = useCreateGarden();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -31,24 +44,43 @@ const CreateOwner: React.FC<CreateOwnerProps> = ({ owner }) => {
   }, [hostUrl]);
 
   const moveHostGarden = useCallback(() => {
-    if (isSuccess) {
+    if (check && !isLoading) {
       navigate(`/host/garden/${owner.uuid}`);
       dispatch(clearCreateOwnerData());
+    } else {
+      toast.loading('아직 생성중입니다!');
     }
-  }, [isSuccess, owner, navigate, dispatch]);
+  }, [check, isLoading, owner, navigate, dispatch]);
+
+  const closeModal = useCallback(() => {
+    setErrorModal(false);
+    dispatch(clearCreateOwnerData());
+    navigate(`/home`);
+  }, [dispatch]);
 
   useEffect(() => {
     mutate();
   }, []);
 
+  useEffect(() => {
+    if (errorMessage) {
+      setErrorModal(true);
+    }
+  }, [errorMessage]);
+
   return (
-    <div className='w-full h-full'>
-      하단에 저장해주세요.
-      <button className='' onClick={saveHostUrlInClipboard}>
-        {hostUrl}
-      </button>
-      남에게 알려주면 안됩니다.
-      <button onClick={moveHostGarden}>정원으로 이동하기</button>
+    <div className='flex items-center justify-center w-full h-full overflow-auto'>
+      <div className='p-4'>
+        하단에 저장해주세요.
+        <button className='' onClick={saveHostUrlInClipboard}>
+          {hostUrl}
+        </button>
+        남에게 알려주면 안됩니다.
+        <button onClick={moveHostGarden}>정원으로 이동하기</button>
+      </div>
+      <ErrorModal isOpen={isErrorModal} title='Server Error' closeModal={closeModal}>
+        {errorMessage}
+      </ErrorModal>
     </div>
   );
 };

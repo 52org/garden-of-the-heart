@@ -13,12 +13,23 @@ interface BaseState {
   errorMessage: string | null;
 }
 
+const letterData: LetterData = {
+  uuid: "test",
+  author: "test",
+  plantName: "토마토",
+  message: "sads",
+  keywords: []
+}
+
 const initialState: BaseState = {
-  uuid: "11111",
-  name: "test",
+  uuid: "1111",
+  name: "1111",
   isLoading: false,
-  createOwnerData: null,
-  createLetterData: null,
+  createOwnerData: {
+    uuid: "test",
+    name: "test"
+  },
+  createLetterData: letterData,
   errorMessage: null,
 };
 
@@ -39,8 +50,6 @@ const baseSlice = createSlice({
       state.createLetterData = payload;
     },
     setErrorMessage: (state, { payload }: PayloadAction<string>) => {
-      state.createOwnerData = null;
-      state.createLetterData = null;
       state.errorMessage = payload;
       state.isLoading = false;
     },
@@ -49,13 +58,17 @@ const baseSlice = createSlice({
     },
     clearCreateOwnerData: (state) => {
       state.createOwnerData = null;
+      state.errorMessage = null;
       state.isLoading = false;
     },
     clearCreateLetterData: (state) => {
       state.createLetterData = null;
+      state.errorMessage = null;
       state.isLoading = false;
     },
     clearError: (state) => {
+      state.createOwnerData = null;
+      state.createLetterData = null;
       state.errorMessage = null;
     },
     clearBase: () => {

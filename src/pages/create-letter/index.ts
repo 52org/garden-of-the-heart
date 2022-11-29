@@ -1,3 +1,3 @@
-import CreateLetter from "./CreateLetter";
+import CreateLetter from "./CreateLetterWrapper";
 
 export default CreateLetter;
