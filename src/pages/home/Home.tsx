@@ -1,4 +1,5 @@
 import { main_image } from 'assets/image';
+import TotalStats from 'components/total-stats';
 import { useAppDispatch } from 'hooks';
 import React, { useEffect } from 'react';
 import { clearBase } from 'store/modules/base';
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
         <h1 className='pt-7 text-3xl font-extrabold mb-7'>🌱 마음을 전하는 텃밭 🌱</h1>
         <p className='w-11/12 m-auto text-lg'>
           전하고 싶었던 말을 <br /> 시간이 지나면 잊을 때가 있지 않나요? <br /> <br />
-          전하고 싶지만 <br /> 나중에 확인해줬으면 하는 말들이 있어요.. <br /> <br />
+          {/* 전하고 싶지만 <br /> 나중에 확인해줬으면 하는 말들이 있어요.. <br /> <br /> */}
           씨앗에 글을 담아 텃밭에 심어주세요. <br /> 받은 사람이 가꾸고 확인해볼 거예요.
         </p>
 
@@ -37,6 +38,17 @@ const Home: React.FC = () => {
           <img className='w-auto h-full m-auto' src={main_image} alt='' />
         </div>
         <CreateOwnerBox />
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '10%',
+            marginTop: '1.25rem',
+            fontSize: '1.6rem',
+            textAlign: 'left',
+          }}
+        >
+          <TotalStats gardenCount={128} plantCount={512} />
+        </div>
       </div>
     </div>
   );
