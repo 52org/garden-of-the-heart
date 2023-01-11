@@ -1,5 +1,4 @@
-
 export interface Owner {
   uuid: string;
-  name: string;
+  gardenName: string;
 }
