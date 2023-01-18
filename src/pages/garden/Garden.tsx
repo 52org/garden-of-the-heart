@@ -3,7 +3,7 @@ import React from 'react';
 
 import Background from './components/Background';
 import Ground from './components/Ground';
-import Title from './components/Tiltle';
+import Title from './components/Title';
 import UrlShareButton from './components/UrlShareButton';
 
 interface GardenProps {
