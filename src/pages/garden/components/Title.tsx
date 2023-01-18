@@ -12,6 +12,20 @@ const Title: React.FC = () => {
       <span className='relative z-30 block text-3xl leading-8 text-center'>
         {name ?? ''}의 텃밭
       </span>
+      <div
+        style={{
+          marginTop: '1.25rem',
+          fontSize: '1.6rem',
+          textAlign: 'left',
+        }}
+      >
+        <p>
+          <span className='text-btnColor-200'>{name ?? '마음이의주말농장'}</span>&nbsp;텃밭에
+          <br />
+          <span className='inline-block w-16 text-right text-btnColor-200'>{8}&nbsp;</span>
+          개의 씨앗이 심어졌어요!
+        </p>
+      </div>
     </h1>
   );
 };
