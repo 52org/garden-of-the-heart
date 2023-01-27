@@ -1,6 +1,5 @@
 import type { MouseEventHandler } from 'react';
 import React from 'react';
-
 interface KeywordListProps {
   keyWords: string[];
   deleteKeyword: (targetIndex: number) => void;
@@ -16,11 +15,11 @@ const KeywordList: React.FC<KeywordListProps> = ({ keyWords, deleteKeyword }) =>
   };
 
   return (
-    <ul className='flex flex-row h-9 [&>li+li]:ml-3'>
+    <ul id='keyword-list' className='flex flex-wrap'>
       {keyWords?.map((keyword, index) => (
         <li
           key={`${keyword}-${index}`}
-          className='rounded-lg border-2 bg-btnColor-200 text-textColor-200'
+          className='flex flex-wrap border-2 rounded-lg bg-btnColor-200 text-textColor-200 '
         >
           <button
             type='button'
