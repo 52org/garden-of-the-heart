@@ -14,8 +14,8 @@ interface BaseState {
 }
 
 const initialState: BaseState = {
-  uuid: null,
-  name: null,
+  uuid: '123',
+  name: 'cashew',
   isLoading: false,
   createOwnerData: null,
   createLetterData: null,
