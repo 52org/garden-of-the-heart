@@ -43,9 +43,9 @@ const handlers = [
       }),
     );
   }),
-  rest.get('/api2/todos', (req, res, ctx) => {
+  rest.get('http://localhost:3000/garden-of-the-heart/api2/todos', (req, res, ctx) => {
     return res(
-      ctx.status(111), ctx.json(todos)
+      ctx.status(200), ctx.json(todos)
     )
   })
 ];

@@ -11,7 +11,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     dispatch(clearBase());
-    fetch('/api2/todos', {
+    fetch('http://localhost:3000/garden-of-the-heart/api2/todos', {
       headers: {
         Accept: 'application / json',
       },
