@@ -6,12 +6,21 @@ import ReactDOM from 'react-dom/client';
 import { worker } from './mocks/browser';
 import RootApp from './RootApp';
 
-if (process.env.NODE_ENV === 'development') {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  worker.start({
-    onUnhandledRequest: 'bypass',
-  });
-}
-
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(<RootApp />);
+
+async function main() {
+  if (process.env.NODE_ENV === 'development') {
+    if (window.location.pathname === '/garden-of-the-heart') {
+      window.location.pathname = '/garden-of-the-heart/';
+      return;
+    }
+    await worker.start({
+      serviceWorker: {
+        url: '/garden-of-the-heart/mockServiceWorker.js',
+      },
+      onUnhandledRequest: 'bypass',
+    });
+    root.render(<RootApp />);
+  }
+}
+main();
