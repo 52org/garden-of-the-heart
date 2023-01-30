@@ -8,7 +8,9 @@ import RootApp from './RootApp';
 
 if (process.env.NODE_ENV === 'development') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  worker.start();
+  worker.start({
+    onUnhandledRequest: 'bypass',
+  });
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
