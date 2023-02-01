@@ -32,7 +32,7 @@ const KeywordForm: React.FC<KeywordFormProps> = ({ growingPeriod, isMaxKeywords,
     const enteredKeyword = keywordInput.current?.value;
 
     if (!enteredKeyword) {
-      handleError('* 입새를 입력해주세요');
+      handleError('* 잎새를 입력해주세요');
       return;
     }
     if (enteredKeyword.length > 10) {
