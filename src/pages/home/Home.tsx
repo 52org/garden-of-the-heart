@@ -11,7 +11,15 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     dispatch(clearBase());
-  }, []);
+    fetch('http://localhost:3000/garden-of-the-heart/api2/todos', {
+      headers: {
+        Accept: 'application / json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log('something wrong = ', error));
+  }, [dispatch]);
 
   return (
     <div className='w-full h-full text-center '>
