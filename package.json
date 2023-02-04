@@ -93,6 +93,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "msw": "^1.0.0",
     "postcss": "^8.4.19",
     "prettier": "^2.8.0",
     "prop-types": "^15.8.1",
@@ -101,5 +102,8 @@
     "typescript": "^4.9.3",
     "webpack": "^5.75.0"
   },
-  "homepage": "https://52org.github.io/garden-of-the-heart"
+  "homepage": "/garden-of-the-heart",
+  "msw": {
+    "workerDirectory": "public"
+  }
 }
