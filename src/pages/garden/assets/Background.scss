@@ -96,6 +96,10 @@ html {
   border-radius: 50%;
   transform: scale(0);
   animation-name: sun;
+
+  &__disabled {
+    animation: none;
+  }
 }
 
 /**

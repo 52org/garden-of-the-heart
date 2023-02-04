@@ -7,6 +7,7 @@ import MessageForm from 'pages/message-form';
 import Plant from 'pages/plant';
 import Seed from 'pages/seed';
 import SeedBag from 'pages/seed-bag';
+import TutorialHost from 'pages/tutorial-host';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -34,6 +35,7 @@ const AppRoutes: React.FC = () => (
       <Route path='/*' element={<Redirect to='/home' />} />
     </Route>
     <Route path='home' element={<Home />} />
+    <Route path='tutorial' element={<TutorialHost />} />
     <Route path='create-owner' element={<CreateOwner />} />
     <Route path='create-letter' element={<CreateLetter />} />
     <Route path='host/garden/:uuid' element={<GardenHostPage />} />
