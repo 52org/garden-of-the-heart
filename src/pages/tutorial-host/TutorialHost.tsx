@@ -1,4 +1,6 @@
+import { useAppSelector } from 'hooks';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import GardenTutorial from './components/GardenTutorial';
 import MessageBoxTutorial from './components/MessageBoxTutorial';
@@ -7,12 +9,18 @@ import SeedBagTutorial from './components/SeedBagTutorial';
 import SeedTutorial from './components/SeedTutorial';
 import WateringTutorial from './components/WateringTutorial';
 
+const TUTORIAL_PAGE = 6;
+
 const TutorialHost: React.FC = () => {
+  const navigate = useNavigate();
+  const { uuid } = useAppSelector((state) => state.base);
   const [tutorialLevel, setTutorialLevel] = useState(0);
 
   useEffect(() => {
-    setTutorialLevel(0);
-  }, []);
+    if (tutorialLevel === TUTORIAL_PAGE) {
+      navigate(`host/garden/${uuid}`);
+    }
+  }, [tutorialLevel]);
 
   return (
     <>
