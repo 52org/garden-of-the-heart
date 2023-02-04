@@ -12,8 +12,8 @@ const TutorialHost: React.FC = () => {
 
   return (
     <>
-      {tutorialLevel === 1 && <GardenTutorial />}
-      {tutorialLevel === 0 && <WateringTutorial />}
+      {tutorialLevel === 0 && <GardenTutorial tutorialCounter={setTutorialLevel} />}
+      {tutorialLevel === 1 && <WateringTutorial />}
     </>
   );
 };

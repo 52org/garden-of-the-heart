@@ -30,6 +30,9 @@ module.exports = {
       fontFamily: {
         gamja: ['Gamja Flower'],
       },
+      zIndex: {
+        100: '100',
+      },
     },
   },
   plugins: [],
