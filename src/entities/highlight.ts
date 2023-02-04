@@ -3,6 +3,4 @@ export interface HighlighterProps {
   right?: number;
   top?: number;
   bottom?: number;
-  width: number;
-  height: number;
 }

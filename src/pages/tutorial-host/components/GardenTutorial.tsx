@@ -38,10 +38,10 @@ const GardenTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
         </div>
 
         <BackgroundHider tutorialCounter={setCount} />
-        {count === 0 && <Highlighter left={14} top={80} width={24} height={24} />}
-        {count === 1 && <Highlighter right={8} bottom={48} width={24} height={24} />}
-        {count === 2 && <Highlighter right={6} bottom={6} width={24} height={24} />}
-        {count === 3 && <Highlighter right={80} bottom={6} width={24} height={24} />}
+        {count === 0 && <Highlighter left={14} top={80} />}
+        {count === 1 && <Highlighter right={8} bottom={48} />}
+        {count === 2 && <Highlighter right={6} bottom={6} />}
+        {count === 3 && <Highlighter right={80} bottom={6} />}
       </div>
     </>
   );
