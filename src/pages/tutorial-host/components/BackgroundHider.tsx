@@ -8,7 +8,7 @@ const BackgroundHider: React.FC<Tutorial> = ({ tutorialCounter }) => {
 
   return (
     <div
-      className='absolute top-0 bottom-0 left-0 right-0 z-50 h-screen bg-black/70'
+      className='absolute top-0 bottom-0 left-0 right-0 z-50 h-screen bg-black/80'
       onClick={clickBackground}
     />
   );

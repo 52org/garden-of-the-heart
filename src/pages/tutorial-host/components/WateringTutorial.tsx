@@ -68,7 +68,6 @@ const WateringTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
       </ul>
 
       <BackgroundHider tutorialCounter={setCount} />
-      {/* {count === 0 && <Highlighter left={64} top={64} />} */}
     </div>
   );
 };

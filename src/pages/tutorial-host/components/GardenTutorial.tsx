@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { plantList } from 'services/api/mock/plant';
 
 import BackgroundHider from './BackgroundHider';
+import HighlightDescription from './HighlightDescription';
 
 const TUTORIAL_DONE = 4;
 
@@ -26,15 +27,27 @@ const GardenTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
       <div className='relative py-[20px] z-50 w-80'>
         <Title />
       </div>
+      {count === 0 && (
+        <HighlightDescription
+          direction='bottom'
+          content='친구가 심은 씨앗을 클릭해 물을 줄 수 있어요'
+        />
+      )}
       <div
         className={
           count === 0
-            ? 'relative py-[60px] z-[100] pointer-events-none rounded-xl'
+            ? 'relative py-[0px] z-[100] pointer-events-none rounded-xl'
             : 'relative py-[60px] z-50 pointer-events-none'
         }
       >
         <Ground plantList={plantList} isHost />
       </div>
+      {count === 1 && (
+        <HighlightDescription
+          direction='right'
+          content='내 텃밭을 공유하면 친구가 씨앗을 심으러 올 수 있어요'
+        />
+      )}
       <div
         className={
           count === 1
@@ -60,6 +73,19 @@ const GardenTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
           </div>
         </nav>
       </div>
+      {count === 2 && (
+        <div className='absolute bottom-6 z-[100]'>
+          <HighlightDescription direction='left' content='열어본 편지 목록을 확인할 수 있어요' />
+        </div>
+      )}
+      {count === 3 && (
+        <div className='absolute bottom-6 z-[100]'>
+          <HighlightDescription
+            direction='right'
+            content='어디서든 내 텃밭으로 다시 돌아올 수 있어요'
+          />
+        </div>
+      )}
       <div
         className={
           count === 3
@@ -73,10 +99,6 @@ const GardenTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
       </div>
 
       <BackgroundHider tutorialCounter={setCount} />
-      {/* {count === 0 && <Highlighter left={14} top={80} />}
-        {count === 1 && <Highlighter right={8} bottom={48} />}
-        {count === 2 && <Highlighter right={6} bottom={6} />}
-        {count === 3 && <Highlighter right={80} bottom={6} />} */}
     </div>
   );
 };
