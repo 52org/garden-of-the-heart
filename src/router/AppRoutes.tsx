@@ -35,7 +35,7 @@ const AppRoutes: React.FC = () => (
       <Route path='/*' element={<Redirect to='/home' />} />
     </Route>
     <Route path='home' element={<Home />} />
-    <Route path='tutorial' element={<TutorialHost />} />
+    <Route path='tutorial-host' element={<TutorialHost />} />
     <Route path='create-owner' element={<CreateOwner />} />
     <Route path='create-letter' element={<CreateLetter />} />
     <Route path='host/garden/:uuid' element={<GardenHostPage />} />

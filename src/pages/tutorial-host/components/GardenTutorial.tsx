@@ -74,12 +74,12 @@ const GardenTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
         </nav>
       </div>
       {count === 2 && (
-        <div className='absolute bottom-6 z-[100]'>
+        <div className='absolute bottom-6 z-[200]'>
           <HighlightDescription direction='left' content='열어본 편지 목록을 확인할 수 있어요' />
         </div>
       )}
       {count === 3 && (
-        <div className='absolute bottom-6 z-[100]'>
+        <div className='absolute bottom-6 z-[200]'>
           <HighlightDescription
             direction='right'
             content='어디서든 내 텃밭으로 다시 돌아올 수 있어요'

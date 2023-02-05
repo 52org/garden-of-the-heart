@@ -3,6 +3,7 @@ import type { Tutorial } from 'entities/tutorial';
 import React, { useEffect, useState } from 'react';
 
 import BackgroundHider from './BackgroundHider';
+import HighlightDescription from './HighlightDescription';
 
 const TUTORIAL_DONE = 1;
 
@@ -24,7 +25,7 @@ const SeedBagTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
           <div
             className={
               count === 0
-                ? 'inline-block w-4/12 m-4 border first:relative first:bg-white first:z-[100] first:rounded-xl'
+                ? 'inline-block w-4/12 m-4 border first:relative first:bg-white first:z-[100] first:rounded-xl pointer-events-none'
                 : 'inline-block w-4/12 m-4 border'
             }
             key={seed.plantName}
@@ -37,6 +38,15 @@ const SeedBagTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
           </div>
         ))}
       </div>
+
+      {count === 0 && (
+        <div className='absolute ml-2 top-1/4'>
+          <HighlightDescription
+            direction='top'
+            content='원하는 씨앗을 골라서 친구의 텃밭에 심어줄 수 있어요'
+          />
+        </div>
+      )}
 
       <BackgroundHider tutorialCounter={setCount} />
     </div>

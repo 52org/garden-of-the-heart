@@ -4,6 +4,7 @@ import { getPlantDetailImage } from 'utils';
 
 import { plantDetail } from '../../../services/api/mock/plant';
 import BackgroundHider from './BackgroundHider';
+import HighlightDescription from './HighlightDescription';
 
 const TUTORIAL_DONE = 3;
 
@@ -45,12 +46,24 @@ const WateringTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
         type='button'
         className={
           count === 0 || count === 2
-            ? 'relative border-2 border-solid border-trueGray-200 bg-white z-[100] rounded-xl'
+            ? 'relative border-2 border-solid border-trueGray-200 bg-white z-[100] rounded-xl pointer-events-none '
             : 'border-2 border-solid border-trueGray-200 z-50'
         }
       >
         {buttonText}
       </button>
+      {count === 0 && (
+        <HighlightDescription
+          direction='top'
+          content='씨앗에 물을 줘서 키울 수 있어요. 물 주기는 씨앗 별로 하루에 한 번만 가능해요'
+        />
+      )}
+      {count === 2 && (
+        <HighlightDescription
+          direction='top'
+          content='물을 줘서 씨앗이 다 자라면, 여기를 클릭해 편지를 볼 수 있어요'
+        />
+      )}
       <div className='flex p-5'>
         <p className='mr-3'>{plantDetail.plantName}</p>
         <p>{plantDetail.wateringCount}번 물을 줬어요</p>
@@ -58,7 +71,7 @@ const WateringTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
       <ul
         className={
           count === 1
-            ? 'relative p-5 list-decimal bg-white z-[100] rounded-xl'
+            ? 'relative p-5 list-decimal bg-white z-[100] rounded-xl pointer-events-none '
             : 'p-5 list-decimal z-50'
         }
       >
@@ -66,6 +79,12 @@ const WateringTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
           <React.Fragment key={`${word}-${idx}`}>{keywordItem(word, idx)}</React.Fragment>
         ))}
       </ul>
+      {count === 1 && (
+        <HighlightDescription
+          direction='top'
+          content='물을 준 횟수에 따라 편지에 대한 힌트를 얻을 수 있어요'
+        />
+      )}
 
       <BackgroundHider tutorialCounter={setCount} />
     </div>

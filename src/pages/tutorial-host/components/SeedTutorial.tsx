@@ -3,6 +3,7 @@ import type { Tutorial } from 'entities/tutorial';
 import React, { useEffect, useState } from 'react';
 
 import BackgroundHider from './BackgroundHider';
+import HighlightDescription from './HighlightDescription';
 
 const TUTORIAL_DONE = 1;
 
@@ -20,8 +21,18 @@ const SeedTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
   return (
     <div className='relative flex flex-col items-center justify-center h-full space-y-7 bg-color'>
       <img src={imgUrl} alt='' className='w-64' />
+      {count === 0 && (
+        <HighlightDescription
+          direction='bottom'
+          content='씨앗에 대한 설명이에요. 편지와 맞는 씨앗인지 확인하고 심으러 가요!'
+        />
+      )}
       <div
-        className={count === 0 ? 'w-40 mt-7 relative bg-white z-[100] rounded-xl p-2' : 'w-40 mt-7'}
+        className={
+          count === 0
+            ? 'w-40 relative bg-white z-[100] rounded-xl p-2 pointer-events-none'
+            : 'w-40 mt-7'
+        }
       >
         <h2 className='text-3xl font-extrabold'>{plantName}</h2>
         <span>물주기 횟수 : {growingPeriod}</span>

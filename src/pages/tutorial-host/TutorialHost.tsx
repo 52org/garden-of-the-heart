@@ -1,6 +1,7 @@
 import { useAppSelector } from 'hooks';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import GardenTutorial from './components/GardenTutorial';
 import MessageBoxTutorial from './components/MessageBoxTutorial';
@@ -18,6 +19,8 @@ const TutorialHost: React.FC = () => {
 
   useEffect(() => {
     if (tutorialLevel === TUTORIAL_PAGE) {
+      toast.success('튜토리얼이 완료되었습니다!');
+      window.localStorage.setItem('tutorial', 'DONE');
       navigate(`host/garden/${uuid}`);
     }
   }, [tutorialLevel]);
