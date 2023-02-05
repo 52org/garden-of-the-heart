@@ -21,7 +21,15 @@ const MessageBoxTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
 
   return (
     <div className='box-border relative h-screen px-8 mx-auto overflow-auto rounded'>
-      <h1 className='py-5 text-2xl text-center'>편지 리스트</h1>
+      <h1
+        className={
+          count === 0
+            ? 'py-5 text-2xl text-center relative bg-white z-[100] rounded-xl'
+            : 'py-5 text-2xl text-center'
+        }
+      >
+        편지 리스트
+      </h1>
       {data && Array.isArray(data) && data[0] ? (
         <ul className='[&>li]:mb-7 rounded h-auto'>
           {data.map((item) => (
