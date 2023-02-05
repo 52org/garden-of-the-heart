@@ -37,8 +37,12 @@ const MessageFormTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
     <div className='relative h-full'>
       <Letter receiver='텃밭' plantName='해바라기'>
         <LetterForm createMessage={createMessage} />
-        <KeywordForm growingPeriod={4} isMaxKeywords={false} setKeyword={setKeyword} />
-        <KeywordList keyWords={keyWords} deleteKeyword={deleteKeyword} />
+        <div className={count === 0 ? 'relative bg-white z-[100] rounded-xl px-2 py-0.5' : ''}>
+          <KeywordForm growingPeriod={4} isMaxKeywords={false} setKeyword={setKeyword} />
+        </div>
+        <div className={count === 1 ? 'relative bg-white z-[100] rounded-xl px-3 py-0.5' : ''}>
+          <KeywordList keyWords={keyWords} deleteKeyword={deleteKeyword} />
+        </div>
         <p className='mr-2 text-right'>23.02.05</p>
 
         <div className='flex justify-center w-full'>
@@ -50,9 +54,9 @@ const MessageFormTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
             보내기
           </button>
         </div>
-      </Letter>
 
-      <BackgroundHider tutorialCounter={setCount} />
+        <BackgroundHider tutorialCounter={setCount} />
+      </Letter>
     </div>
   );
 };

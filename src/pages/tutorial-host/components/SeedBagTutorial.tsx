@@ -21,7 +21,14 @@ const SeedBagTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
       <span className='font-extrabold font-xxl'>씨앗 주머니</span>
       <div className='flex flex-wrap justify-center mt-2 overflow-y-scroll h-4/5'>
         {seedList.map((seed) => (
-          <div className='inline-block w-4/12 m-4 border' key={seed.plantName}>
+          <div
+            className={
+              count === 0
+                ? 'inline-block w-4/12 m-4 border first:relative first:bg-white first:z-[100] first:rounded-xl'
+                : 'inline-block w-4/12 m-4 border'
+            }
+            key={seed.plantName}
+          >
             <img className='m-auto border' src={seed.imgUrl} alt={seed.plantName} />
             <div className='flex justify-between m-auto'>
               <span className='ml-2'>{seed.plantName}</span>
