@@ -18,7 +18,7 @@ const WateringTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
   }, [count, tutorialCounter]);
 
   const plantImage = getPlantDetailImage(plantDetail.wateringCount, plantDetail.plantName);
-  const buttonText = '물 주기';
+  const buttonText = count === TUTORIAL_DONE - 1 ? '내용 보기' : '물 주기';
 
   const keywordItem = (word: string, idx: number) => {
     if (idx >= plantDetail.wateringCount) {
@@ -41,14 +41,27 @@ const WateringTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
       <div className='border-2 border-solid border-trueGray-200'>
         <img src={plantImage} alt='plant-detail' className='flex object-cover w-4/6 mx-auto' />
       </div>
-      <button type='button' className='border-2 border-solid border-trueGray-200'>
+      <button
+        type='button'
+        className={
+          count === 0 || count === 2
+            ? 'relative border-2 border-solid border-trueGray-200 bg-white z-[100] rounded-xl'
+            : 'border-2 border-solid border-trueGray-200 z-50'
+        }
+      >
         {buttonText}
       </button>
       <div className='flex p-5'>
         <p className='mr-3'>{plantDetail.plantName}</p>
         <p>{plantDetail.wateringCount}번 물을 줬어요</p>
       </div>
-      <ul className='p-5 list-decimal'>
+      <ul
+        className={
+          count === 1
+            ? 'relative p-5 list-decimal bg-white z-[100] rounded-xl'
+            : 'p-5 list-decimal z-50'
+        }
+      >
         {plantDetail.keywords.map((word, idx) => (
           <React.Fragment key={`${word}-${idx}`}>{keywordItem(word, idx)}</React.Fragment>
         ))}
