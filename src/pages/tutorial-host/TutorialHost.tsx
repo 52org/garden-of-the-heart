@@ -10,12 +10,25 @@ import SeedBagTutorial from './components/SeedBagTutorial';
 import SeedTutorial from './components/SeedTutorial';
 import WateringTutorial from './components/WateringTutorial';
 
+interface SequenceProps {
+  [key: number]: JSX.Element;
+}
+
 const TUTORIAL_PAGE = 6;
 
 const TutorialHost: React.FC = () => {
   const navigate = useNavigate();
   const { uuid } = useAppSelector((state) => state.base);
   const [tutorialLevel, setTutorialLevel] = useState(0);
+
+  const tutorialSequence: SequenceProps = {
+    0: <GardenTutorial tutorialCounter={setTutorialLevel} />,
+    1: <WateringTutorial tutorialCounter={setTutorialLevel} />,
+    2: <MessageBoxTutorial tutorialCounter={setTutorialLevel} />,
+    3: <SeedBagTutorial tutorialCounter={setTutorialLevel} />,
+    4: <SeedTutorial tutorialCounter={setTutorialLevel} />,
+    5: <MessageFormTutorial tutorialCounter={setTutorialLevel} />,
+  };
 
   useEffect(() => {
     if (tutorialLevel === TUTORIAL_PAGE) {
@@ -25,16 +38,7 @@ const TutorialHost: React.FC = () => {
     }
   }, [tutorialLevel]);
 
-  return (
-    <>
-      {tutorialLevel === 0 && <GardenTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 1 && <WateringTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 2 && <MessageBoxTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 3 && <SeedBagTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 4 && <SeedTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 5 && <MessageFormTutorial tutorialCounter={setTutorialLevel} />}
-    </>
-  );
+  return <>{tutorialSequence[tutorialLevel]}</>;
 };
 
 export default TutorialHost;

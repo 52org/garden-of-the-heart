@@ -25,7 +25,7 @@ const GardenTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
   return (
     <div className='relative flex flex-col items-center justify-center w-full h-full'>
       <div className='relative py-[20px] z-50 w-80'>
-        <Title />
+        <Title isHost={false} />
       </div>
       {count === 0 && (
         <HighlightDescription
