@@ -1,20 +1,23 @@
+<div align="center">
+<img src="https://user-images.githubusercontent.com/87933367/218255769-d8121e12-4d8a-4ba5-a058-c6622f7cda63.png" />
+<br/>
+<br/>
+
 # ☘️ 마음을 전하는 텃밭 ☘️
 
-당장 말을 전하지 못하고 시간이 지나면 까먹을 때가 있지 않나요?<br/>
-전하고 싶지만 나중에 확인해줬으면 하는 말들이 있어요..
+[<img src="https://img.shields.io/badge/-garden of the heart-pi?style=flat&logo=google-chrome&logoColor=white" />](https://52org.github.io/garden-of-the-heart)
 
+</div>
+
+## 🌱 소개
+
+마음을 전하는 텃밭은 [테오의 스프린트 13기](https://velog.io/@teo/google-sprint-13)에서 진행된 편지 서비스입니다.
 <br/>
+당장 전하지 못하고 시간이 지나면 잊어버리는 말이나 특정 시간에 열어서 읽어줬으면 하는 편지를 전달하고, '물주기' 이벤트를 통해 편지를 가꾸고 열어볼 수 있습니다.
 
-글을 담아 전하고 싶은 사람의 텃밭에 심어주세요, 받은 사람이 가꾸고 확인해볼거에요!
+<br/><br/>
 
-<br/>
-
-[텃밭 만들러 가기!](https://52org.github.io/garden-of-the-heart)
-
-<br/>
-<br/>
-
-## 서비스 소개
+## 📱 서비스 화면
 
 **👨‍🌾 쉽게 나의 텃밭을 만들 수 있어요. 친구들에게도 나의 텃밭을 공유할 수 있어요!**
 
