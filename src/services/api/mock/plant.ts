@@ -8,26 +8,26 @@ export const plantList: Plant[] = [
     isWatered: false,
   },
   {
-    letterId: '1',
+    letterId: '2',
     plantName: '토마토',
     wateringCount: 0,
     isWatered: false,
   },
   {
-    letterId: '1',
+    letterId: '3',
     plantName: '토마토',
     wateringCount: 0,
 
     isWatered: false,
   },
   {
-    letterId: '1',
+    letterId: '4',
     plantName: '토마토',
     wateringCount: 0,
     isWatered: false,
   },
   {
-    letterId: '1',
+    letterId: '5',
     plantName: '토마토',
     wateringCount: 0,
     isWatered: false,
@@ -36,6 +36,6 @@ export const plantList: Plant[] = [
 
 export const plantDetail: PlantDetail = {
   plantName: '토마토',
-  wateringCount: 0,
-  keywords: ['바보'],
+  wateringCount: 1,
+  keywords: ['바보', '멍청이', '해삼'],
 };
