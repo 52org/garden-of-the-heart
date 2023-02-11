@@ -15,7 +15,7 @@ const Garden: React.FC<GardenProps> = (props) => {
   return (
     <div className='relative flex items-center justify-center w-full h-full'>
       <div className='relative py-[100px] z-20'>
-        <Title />
+        <Title isHost={props.isHost} />
         <Ground {...props} />
         <div className='absolute bottom-0 right-0'>
           <UrlShareButton />
