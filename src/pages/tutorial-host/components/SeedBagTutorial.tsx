@@ -1,21 +1,14 @@
 import { seedList } from 'data/seedList';
 import type { Tutorial } from 'entities/tutorial';
-import React, { useEffect, useState } from 'react';
+import useTutorialDetailCounter from 'hooks/useTutorialDetailCounter';
+import React from 'react';
 
 import BackgroundHider from './BackgroundHider';
 import HighlightDescription from './HighlightDescription';
 
-const TUTORIAL_DONE = 1;
-
-const SeedBagTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (count === TUTORIAL_DONE) {
-      tutorialCounter((prev) => ++prev);
-      return;
-    }
-  }, [count, tutorialCounter]);
+const SeedBagTutorial: React.FC<Tutorial> = ({ tutorialHandler }) => {
+  const TUTORIAL_DONE = 1;
+  const [count, setCount] = useTutorialDetailCounter(TUTORIAL_DONE, tutorialHandler);
 
   return (
     <div className='relative h-full pt-5 text-center bg-bgColor-100'>

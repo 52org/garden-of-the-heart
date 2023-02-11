@@ -15,18 +15,23 @@ interface SequenceProps {
 }
 
 const TutorialHost: React.FC = () => {
-  const navigate = useNavigate();
-  const { uuid } = useAppSelector((state) => state.base);
   const [tutorialLevel, setTutorialLevel] = useState(0);
+  const navigate = useNavigate();
+
+  const { uuid } = useAppSelector((state) => state.base);
+
+  const goNextTutorial = () => {
+    setTutorialLevel((prev) => ++prev);
+  };
 
   const TUTORIAL_PAGE = 6;
   const tutorialSequence: SequenceProps = {
-    0: <GardenTutorial tutorialCounter={setTutorialLevel} />,
-    1: <WateringTutorial tutorialCounter={setTutorialLevel} />,
-    2: <MessageBoxTutorial tutorialCounter={setTutorialLevel} />,
-    3: <SeedBagTutorial tutorialCounter={setTutorialLevel} />,
-    4: <SeedTutorial tutorialCounter={setTutorialLevel} />,
-    5: <MessageFormTutorial tutorialCounter={setTutorialLevel} />,
+    0: <GardenTutorial tutorialHandler={goNextTutorial} />,
+    1: <WateringTutorial tutorialHandler={goNextTutorial} />,
+    2: <MessageBoxTutorial tutorialHandler={goNextTutorial} />,
+    3: <SeedBagTutorial tutorialHandler={goNextTutorial} />,
+    4: <SeedTutorial tutorialHandler={goNextTutorial} />,
+    5: <MessageFormTutorial tutorialHandler={goNextTutorial} />,
   };
 
   useEffect(() => {
@@ -35,7 +40,7 @@ const TutorialHost: React.FC = () => {
       window.localStorage.setItem('tutorial', 'DONE');
       navigate(`host/garden/${uuid}`);
     }
-  }, [tutorialLevel]);
+  }, [tutorialLevel, navigate, uuid]);
 
   return <>{tutorialSequence[tutorialLevel]}</>;
 };

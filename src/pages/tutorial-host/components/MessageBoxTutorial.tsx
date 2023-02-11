@@ -1,24 +1,18 @@
 import type { Tutorial } from 'entities/tutorial';
 import useGetLetterList from 'hooks/useGetLetterList';
+import useTutorialDetailCounter from 'hooks/useTutorialDetailCounter';
 import EmptyMessage from 'pages/message-box/components/EmptyMessage';
 import MessageBoxItem from 'pages/message-box/components/MessageBoxItem';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import BackgroundHider from './BackgroundHider';
 import HighlightDescription from './HighlightDescription';
 
-const TUTORIAL_DONE = 1;
+const MessageBoxTutorial: React.FC<Tutorial> = ({ tutorialHandler }) => {
+  const TUTORIAL_DONE = 1;
+  const [count, setCount] = useTutorialDetailCounter(TUTORIAL_DONE, tutorialHandler);
 
-const MessageBoxTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
-  const [count, setCount] = useState(0);
-  const { isLoading, data } = useGetLetterList();
-
-  useEffect(() => {
-    if (count === TUTORIAL_DONE) {
-      tutorialCounter((prev) => ++prev);
-      return;
-    }
-  }, [count, tutorialCounter]);
+  const { data } = useGetLetterList();
 
   return (
     <div className='box-border relative h-screen px-8 mx-auto overflow-auto rounded'>

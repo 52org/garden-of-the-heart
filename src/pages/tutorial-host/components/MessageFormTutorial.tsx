@@ -1,25 +1,18 @@
 import Letter from 'components/letter';
 import type { Tutorial } from 'entities/tutorial';
+import useTutorialDetailCounter from 'hooks/useTutorialDetailCounter';
 import KeywordForm from 'pages/message-form/components/KeywordForm';
 import KeywordList from 'pages/message-form/components/KeywordList';
 import LetterForm from 'pages/message-form/components/LetterForm';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { plantDetail } from '../../../services/api/mock/plant';
 import BackgroundHider from './BackgroundHider';
 import HighlightDescription from './HighlightDescription';
 
-const TUTORIAL_DONE = 2;
-
-const MessageFormTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (count === TUTORIAL_DONE) {
-      tutorialCounter((prev) => ++prev);
-      return;
-    }
-  }, [count, tutorialCounter]);
+const MessageFormTutorial: React.FC<Tutorial> = ({ tutorialHandler }) => {
+  const TUTORIAL_DONE = 2;
+  const [count, setCount] = useTutorialDetailCounter(TUTORIAL_DONE, tutorialHandler);
 
   const keyWords = plantDetail.keywords;
   const setKeyword = (enteredKeyword: string) => {
