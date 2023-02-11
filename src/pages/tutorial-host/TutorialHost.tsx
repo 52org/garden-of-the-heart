@@ -14,13 +14,12 @@ interface SequenceProps {
   [key: number]: JSX.Element;
 }
 
-const TUTORIAL_PAGE = 6;
-
 const TutorialHost: React.FC = () => {
   const navigate = useNavigate();
   const { uuid } = useAppSelector((state) => state.base);
   const [tutorialLevel, setTutorialLevel] = useState(0);
 
+  const TUTORIAL_PAGE = 6;
   const tutorialSequence: SequenceProps = {
     0: <GardenTutorial tutorialCounter={setTutorialLevel} />,
     1: <WateringTutorial tutorialCounter={setTutorialLevel} />,
