@@ -1,22 +1,15 @@
 import type { Tutorial } from 'entities/tutorial';
-import React, { useEffect, useState } from 'react';
+import useTutorialDetailCounter from 'hooks/useTutorialDetailCounter';
+import React from 'react';
 import { getPlantDetailImage } from 'utils';
 
 import { plantDetail } from '../../../services/api/mock/plant';
 import BackgroundHider from './BackgroundHider';
 import HighlightDescription from './HighlightDescription';
 
-const TUTORIAL_DONE = 3;
-
-const WateringTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (count === TUTORIAL_DONE) {
-      tutorialCounter((prev) => ++prev);
-      return;
-    }
-  }, [count, tutorialCounter]);
+const WateringTutorial: React.FC<Tutorial> = ({ tutorialHandler }) => {
+  const TUTORIAL_DONE = 3;
+  const [count, setCount] = useTutorialDetailCounter(TUTORIAL_DONE, tutorialHandler);
 
   const plantImage = getPlantDetailImage(plantDetail.wateringCount, plantDetail.plantName);
   const buttonText = count === TUTORIAL_DONE - 1 ? '내용 보기' : '물 주기';

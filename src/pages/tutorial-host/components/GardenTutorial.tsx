@@ -1,31 +1,24 @@
 import * as NavImage from 'assets/image/gnb';
 import type { Tutorial } from 'entities/tutorial';
+import useTutorialDetailCounter from 'hooks/useTutorialDetailCounter';
 import Background from 'pages/garden/components/Background';
 import Ground from 'pages/garden/components/Ground';
 import Title from 'pages/garden/components/Title';
 import UrlShareButton from 'pages/garden/components/UrlShareButton';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { plantList } from 'services/api/mock/plant';
 
 import BackgroundHider from './BackgroundHider';
 import HighlightDescription from './HighlightDescription';
 
-const TUTORIAL_DONE = 4;
-
-const GardenTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (count === TUTORIAL_DONE) {
-      tutorialCounter((prev) => ++prev);
-      return;
-    }
-  }, [count, tutorialCounter]);
+const GardenTutorial: React.FC<Tutorial> = ({ tutorialHandler }) => {
+  const TUTORIAL_DONE = 4;
+  const [count, setCount] = useTutorialDetailCounter(TUTORIAL_DONE, tutorialHandler);
 
   return (
     <div className='relative flex flex-col items-center justify-center w-full h-full'>
       <div className='relative py-[20px] z-50 w-80'>
-        <Title />
+        <Title isHost={false} />
       </div>
       {count === 0 && (
         <HighlightDescription

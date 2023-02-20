@@ -10,12 +10,29 @@ import SeedBagTutorial from './components/SeedBagTutorial';
 import SeedTutorial from './components/SeedTutorial';
 import WateringTutorial from './components/WateringTutorial';
 
-const TUTORIAL_PAGE = 6;
+interface SequenceProps {
+  [key: number]: JSX.Element;
+}
 
 const TutorialHost: React.FC = () => {
-  const navigate = useNavigate();
-  const { uuid } = useAppSelector((state) => state.base);
   const [tutorialLevel, setTutorialLevel] = useState(0);
+  const navigate = useNavigate();
+
+  const { uuid } = useAppSelector((state) => state.base);
+
+  const goNextTutorial = () => {
+    setTutorialLevel((prev) => ++prev);
+  };
+
+  const TUTORIAL_PAGE = 6;
+  const tutorialSequence: SequenceProps = {
+    0: <GardenTutorial tutorialHandler={goNextTutorial} />,
+    1: <WateringTutorial tutorialHandler={goNextTutorial} />,
+    2: <MessageBoxTutorial tutorialHandler={goNextTutorial} />,
+    3: <SeedBagTutorial tutorialHandler={goNextTutorial} />,
+    4: <SeedTutorial tutorialHandler={goNextTutorial} />,
+    5: <MessageFormTutorial tutorialHandler={goNextTutorial} />,
+  };
 
   useEffect(() => {
     if (tutorialLevel === TUTORIAL_PAGE) {
@@ -23,18 +40,9 @@ const TutorialHost: React.FC = () => {
       window.localStorage.setItem('tutorial', 'DONE');
       navigate(`host/garden/${uuid}`);
     }
-  }, [tutorialLevel]);
+  }, [tutorialLevel, navigate, uuid]);
 
-  return (
-    <>
-      {tutorialLevel === 0 && <GardenTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 1 && <WateringTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 2 && <MessageBoxTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 3 && <SeedBagTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 4 && <SeedTutorial tutorialCounter={setTutorialLevel} />}
-      {tutorialLevel === 5 && <MessageFormTutorial tutorialCounter={setTutorialLevel} />}
-    </>
-  );
+  return <>{tutorialSequence[tutorialLevel]}</>;
 };
 
 export default TutorialHost;

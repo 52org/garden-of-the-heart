@@ -1,7 +1,10 @@
-import type { Tutorial } from 'entities/tutorial';
 import React from 'react';
 
-const BackgroundHider: React.FC<Tutorial> = ({ tutorialCounter }) => {
+interface BackgroundHiderProps {
+  tutorialCounter: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const BackgroundHider: React.FC<BackgroundHiderProps> = ({ tutorialCounter }) => {
   const clickBackground = () => {
     tutorialCounter((prev) => ++prev);
   };

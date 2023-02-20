@@ -1,22 +1,16 @@
 import { SeedTable } from 'data/seedTable';
 import type { Tutorial } from 'entities/tutorial';
-import React, { useEffect, useState } from 'react';
+import useTutorialDetailCounter from 'hooks/useTutorialDetailCounter';
+import React from 'react';
 
 import BackgroundHider from './BackgroundHider';
 import HighlightDescription from './HighlightDescription';
 
-const TUTORIAL_DONE = 1;
+const SeedTutorial: React.FC<Tutorial> = ({ tutorialHandler }) => {
+  const TUTORIAL_DONE = 1;
+  const [count, setCount] = useTutorialDetailCounter(TUTORIAL_DONE, tutorialHandler);
 
-const SeedTutorial: React.FC<Tutorial> = ({ tutorialCounter }) => {
-  const [count, setCount] = useState(0);
   const { imgUrl, plantName, growingPeriod, description } = SeedTable['해바라기'];
-
-  useEffect(() => {
-    if (count === TUTORIAL_DONE) {
-      tutorialCounter((prev) => ++prev);
-      return;
-    }
-  }, [count, tutorialCounter]);
 
   return (
     <div className='relative flex flex-col items-center justify-center h-full space-y-7 bg-color'>
